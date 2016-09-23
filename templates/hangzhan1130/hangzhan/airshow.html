@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2014珠海航展门票|珠海航展|珠海航展门票价格|2014珠海航展门票预订|第十届中国珠海航展门票--珠海航展门票哪里买?就到奇比拉航展</title>
+    <meta content="珠海航展|2014年珠海航展|2014年珠海航展门票|珠海航展门票价格|2014珠海航展门票预订|珠海航展门票团购" name="keywords">
+    <meta content="珠海航展门票哪买强？--第十届中国航展售票点珠海奇比拉航展门票获取珠海航展门票价格,2014年珠海航展门票,航展时间，请登录第十届珠海航展官方合作伙伴奇比拉航展400 676 0405"
+        name="description">
+    <meta content="{config.webtitle}" name="author">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/common.css" rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/index.css" rel="stylesheet">
+    <script type="text/javascript" src="<%templateskin%>/javascript/jquery-1.8.0.min.js"></script>
+    <script src="<%templateskin%>/javascript/slides.jquery.js" type="text/javascript"></script>
+    <link media="screen" type="text/css" href="<%templateskin%>/css/silde.css" rel="stylesheet">
+    <script type="text/javascript">
+        $(function () {
+            $('#slides').slides({
+                preload: true,
+                preloadImage: 'img/loading.gif',
+                play: 5000,
+                pause: 2500,
+                hoverPause: true
+            });
+            var x_pos = 0;
+            var li_items_n = 0;
+            var right_clicks = 0;
+            var left_clicks = 0;
+            var li_col = jQuery("#slider_list > li");
+            var li_width = li_col.outerWidth(true);
+            var viewWindow = Math.round(jQuery('.block-slider').width() / li_width);
+            //alert(viewWindow);
+            li_col.each(function (index) {
+                x_pos += jQuery(this).outerWidth(true);
+                li_items_n++;
+            })
+
+            right_clicks = li_items_n - viewWindow;
+            total_clicks = li_items_n - viewWindow;
+
+            //alert(right_clicks);
+
+            $('#slider_list').css('position', 'relative');
+            $('#slider_list').css('left', '0px');
+            $('#slider_list').css('width', x_pos + 'px');
+
+            var slider_link = $('#right_but');
+            var slider_link_index = 1;
+            var slider_count = $('#slider_list > li').size();
+
+            function slider_intro() {
+                if (slider_link_index <= slider_count) {
+                    slider_link.trigger('click');
+                    slider_link_index++;
+                    setTimeout(function () { slider_intro() }, 5000); //select change time
+                }
+            }
+            setTimeout(function () { slider_intro() }, 5000);
+
+            $('#slider_list>li').each(function (a, b) {
+                $(b).hover(function () {
+                    $(b).find('span').stop().animate({ 'bottom': 5 }, 500)
+                }, function () {
+                    $(b).find('span').stop().animate({ 'bottom': -($(b).height() + 5) }, 300);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <!--Header-->
+    <%template src=/_header.html/%>
+    <!--/Header-->
+    <div class="cls_main">
+        <div class="banner_box">
+            <div id="slides">
+                <div class="slides_container">
+                  <div class="slide">
+                           <a href='<%linkurl("wanshengjie")%>' title="万圣节狂欢，航展门票价格促销" target="_blank">
+                            <img src="Images/5.jpg" width="1920" height="600" alt="万圣节狂欢，航展门票预订" /></a>
+                    </div>
+                    <div class="slide">
+                        <a href="#" title="珠海航展" target="_blank">
+                            <img src="Images/1.jpg" width="1920" height="600" alt="珠海航展时间" /></a>
+                    </div>
+                    <div class="slide">
+                        <a href="http://www.qilabi.cocm/ticket.aspx" title="珠海航展门票,销量遥遥领先" target="_blank">
+                            <img src="Images/2.jpg" width="1920" height="600" alt="珠海航展门票" /></a>
+                    </div>
+                 <!--   <div class="slide">
+                        <a href="http://www.qilabi.cocm/taopiao.aspx" title="珠海航展，不见不散" target="_blank">
+                            <img src="Images/3.jpg" width="1920" height="600" alt="珠海航展公众日:11.14-11.16" /></a>
+                    </div>
+                    <div class="slide">
+                        <a href="http://www.qilabi.cocm/taopiao.aspx" title="珠海航展世界5大航展之一" target="_blank">
+                            <img src="Images/4.jpg" width="1920" height="600" alt="珠海航展，全面提升民族自信" /></a>
+                    </div>-->
+                  
+                </div>
+            </div>
+        </div>
+        <div class="i_conter">
+            <div class="m_conter">
+                <div class="skin_box">
+                    <ul class="menpiaolist clearfix">
+                        <li><a href="<%linkurl("airshoworders",184)%>" class="one">珠海航展门票【成人票】 </a></li>
+                        <li><a href="<%linkurl("airshoworders",185)%>" class="two">珠海航展门票【家庭票】</a></li>
+                        <li><a href="<%linkurl("airshoworders",190)%>" class="three">珠海航展门票【优惠票】</a></li>
+                        <li><a href="<%linkurl("airshoworders",188)%>" class="four">珠海航展门票团体票</a></li>
+                    </ul>
+                    <div class="blank10">
+                    </div>
+                    <h3 class="deatil_title">
+                        珠海航展门票</h3>
+                    <table width="960" cellspacing="0" class="menpiao_detail">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>特惠票</strong>
+                                </td>
+                                <td>
+                                    <strong>150元</strong>
+                                </td>
+                                <td>
+                                    珠海航展门票特惠票价格为人民币150元/张，适用于18周岁及以下<br />
+                                    珠海户口的中小学生和幼童。（即1997年1月1日及以后出生）<br />
+                                </td>
+                                <td>
+                                    <a href='<%linkurl("airshoworders",189)%>' class="iBtn iBtnBlue" target="_blank"
+                                        title="航展特惠门票">点击购买</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>优惠票</strong>
+                                </td>
+                                <td>
+                                    <strong>200元</strong>
+                                </td>
+                                <td>
+                                    适用于 25 周岁以下全日制学校的大中小学生（不含研究生和在职教育学生）<br>
+                                    身高 1.5 米以下的儿童、残疾人士和 60 周岁及以上老年人；<br>
+                                    入场时需出示相关有效证件（学生证或证明、残疾证、身份证）。
+                                </td>
+                                <td>
+                                    <a href='<%linkurl("airshoworders",190)%>' class="iBtn iBtnBlue" target="_blank"
+                                        title="航展优惠门票">点击购买</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="144">
+                                    <strong>个人票</strong>
+                                </td>
+                                <td width="169">
+                                    <strong>400元</strong>
+                                </td>
+                                <td width="473">
+                                    1.5 米以上的参观客人，适使用所有人员；<br>
+                                    禁止携带无票儿童入场。
+                                </td>
+                                <td width="174">
+                                    <a href='<%linkurl("airshoworders",184)%>' target="_blank" class="iBtn iBtnBlue"
+                                        title="航展成人门票">点击购买</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>家庭票</strong>
+                                </td>
+                                <td>
+                                    <strong>950元</strong>
+                                </td>
+                                <td>
+                                    适用于2个成人带1个身高1.5米（含1.5米）以下儿童）。（验票通道前设立身高标尺）<br>
+                                    2大1小同时入场。
+                                </td>
+                                <td>
+                                    <a href='<%linkurl("airshoworders",185)%>' target="_blank" class="iBtn iBtnBlue"
+                                        title="航展家庭门票">点击购买 </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>团体票</strong>
+                                </td>
+                                <td>
+                                    <strong>5500元</strong>
+                                </td>
+                                <td>
+                                    每张门票须 15 人同时入场。
+                                </td>
+                                <td>
+                                    <a href='<%linkurl("airshoworders",188)%>' target="_blank" class="iBtn iBtnBlue"
+                                        title="航展团体门票">点击购买</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>电子票</strong>
+                                </td>
+                                <td>
+                                    <strong>370元</strong>
+                                </td>
+                                <td>
+                                    1.5 米以上的参观客人，适使用所有人员，为团体票的拆分<br>
+                                    由我方在航展馆5号口处组团入内，无实物门票.联系电话15015914772
+                                </td>
+                                <td>
+                                    <a href='<%linkurl("airshoworders",200)%>' target="_blank" class="iBtn iBtnBlue"
+                                        title="航展团购门票">点击购买</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <div class="hangzhantipbj">
+                            <a href="http://www.qilabi.com">
+                                <img src="{config.webpath}Images/banner1.jpg" width="900px" alt="2014珠海航展"></a>
+                        </div>
+                        <div class="hangzhantipbj">
+                            <div class="hangzhanbj_action">
+                                <h4 class="airshow_tips" title="珠海航展门票使用注意事项">
+                                    珠海航展门票使用注意事项 <span>Action</span>
+                                </h4>
+                            </div>
+                            <ul class="ul_tips clearfix">
+                                <li>1.门票使用有效期为2014年11月14号至11月16号(公众日)，任意一天使用，单次有效，每天开放时间09:00-17:00</li>
+                                <li>2.入场时需出示有效证件配合安全检查，如忘带证件可以走特殊通道，该通道配有很多摄像头</li>
+                                <li>3.所有人员均需购票入场，一人一票(不分年龄和身高)</li>
+                                <li>4.凡在奇比拉航展门票中心购买的门票，如发现门票不适用更改行程，支持退换，退票收20%手续费，换票收取差价。</li>
+                            </ul>
+                        </div>
+                        <div class="hangzhantipbj hangzhantipnotop">
+                            <div class="hangzhanbj_tips">
+                                <h4 class="airshow_tips" title="珠海航展门票温馨提示">
+                                    温馨提示 <span>Tip</span>
+                                </h4>
+                            </div>
+                            <ul class="ul_tips clearfix">
+                                <li>1.珠海航展门票不设折扣，没有所谓的内部票，航展公司内部人员都需要购票，切勿贪图便宜，购买假票照成不必要的麻烦</li>
+                                <li>2.奇比拉航展门票为珠海航展官方合作伙伴，在<a href="http://gzdaily.dayoo.com/html/2014-10/21/content_2778790.htm"
+                                    rel="nofollow" target="_blank">广州日报</a> 、<a href="http://news.ifeng.com/a/20141021/42252802_0.shtml"
+                                        rel="nofollow" target="_blank">凤凰网</a>、<a href="http://www.airshow.com.cn/cn/ptgz/GenAudience/201409/19963.html#footer"
+                                            rel="nofollow" target="_blank"> 珠海航展公司官网</a>、南方都市报等其他主流媒体均相应有报道。可放心购买。</li>
+                                <li>3.航展门票哪买强？奇比拉航展门票专注航展10届，珠海航展门票销量遥遥领先。顺丰快递 一日三送</li>
+                            </ul>
+                        </div>
+                        <div class="hangzhantipbj hangzhantipnotop">
+                            <div class="hangzhanbj_step">
+                                <h4 class="airshow_tips" title="珠海航展门票温馨提示">
+                                    航展门票购买流程 <span>Step</span>
+                                </h4>
+                            </div>
+                            <div class="ul_tips clearfix">
+                                <img src="{config.webpath}images/step.jpg" width="900px" height="100px" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <!--Footer-->
+    <%template src=/_footer.html/%>
+    <!--/Footer-->
+</body>
+</html>

@@ -1,0 +1,134 @@
+﻿<div class="blank15">
+</div>
+<div class="footerseo clearfix">
+   
+    <div class="footerseo_con">
+        <div class="seo_title clearfix">
+            <h3 class="seotitle2">
+                地图导航</h3>
+            <a class="more" target="_blank" href="http://you.ctrip.com/sitemap/placedis/c110000">
+                全部 &gt;</a></div>
+        <div class="linklist clearfix">
+            <a href="<%linkurl("index")%>" target="_blank">首页</a><a target="_blank" href="<%linkurl("news_list",33)%>">航展攻略</a>
+            <a target="_blank" href="<%linkurl("news_list",1)%>">航展动态</a> <a target="_blank"
+                href="<%linkurl("news_list",4)%>">航展问答</a> <a target="_blank" href="<%linkurl("news_list",3)%>">
+                    航展焦点</a> <a target="_blank" href="<%linkurl("photo")%>">航空航天图片</a>
+        </div>
+    </div>
+    <div class="footerseo_con">
+        <div class="seo_title clearfix">
+            <h3 class="seotitle2">
+                航展回顾</h3>
+            <a class="more" target="_blank" href="http://you.ctrip.com/sitemap/placedis/c110000">
+                全部 &gt;</a></div>
+        <div class="linklist clearfix">
+            <%set (DataTable){huigus}=get_article_list("news", 35, 10, "status=0")%>
+            <%loop huigu huigus%>
+            <a href="<%linkurl("news_show",{huigu[id]})%>" title="{huigu[title]}" target="_blank">
+                {huigu[title]}</a>
+            <%/loop%>
+        </div>
+    </div>
+    <div class="footerseo_con">
+        <div class="seo_title clearfix">
+            <h3 class="seotitle2">
+                友情链接</h3>
+        </div>
+        <div class="linklist clearfix">
+            <%set DataTable linkList1=get_plugin_method("DTcms.Web.Plugin.Link", "link", "get_link_list", 0, "is_lock=0 and is_image=0 and is_red=1")%>
+            <%foreach(DataRow dr in linkList1.Rows)%>
+            <a target="_blank" href="{dr[site_url]}">{dr[title]}</a>
+            <%/foreach%>
+        </div>
+    </div>
+</div>
+<div class="footgray">
+    <div class="footinner clearfix">
+        <dl>
+            <dt>网站相关</dt>
+            <%set DataTable footercontentlist=get_article_list("content", 0, 0, "status=0")%>
+        <%foreach(DataRow dr in footercontentlist.Rows)%>
+        <dd><a title="{dr[title]}" href="<%linkurl("content",{dr[call_index]})%>">{dr[title]}</a></dd>
+        <%/foreach%>
+       </dl>
+
+        <dl>
+            <dt>购票便捷</dt>
+            <dd>无须注册</dd>
+            <dd>快速出票</dd>
+            <dd>快捷支付</dd>
+            <dd>顺丰快递</dd>
+            <dd>一日三送</dd>            
+       </dl>    
+
+        <dl>
+            <dt>服务提供</dt>
+            <dd>官网授权</dd> 
+            <dd>航展门票代理</dd>
+            <dd>航展套票</dd>  
+            <dd>珠海旅游景区</dd>    
+            <dd>看航展游长隆泡温泉</dd>     
+       </dl>       
+        <dl>
+            <dt>客服热线</dt>
+            <dd>400 676 0405</dd>
+            <dd>15989768355</dd> 
+            <dd>0756-6855591</dd>
+            <dd></dd>                     
+       </dl>
+         <dl>
+            <dt>微信关注</dt>
+            <dd><img src="<%templateskin%>/Images/weixin.jpg" width="175px" /></dd>
+                            
+       </dl>
+
+    </div>
+</div>
+
+<div class="copyright">
+    <span class="">© 版权所有2003-2014 官方授权珠海航展门票销售商 qibila 提供最专业的珠海航展门票预订-奇比拉有限公司, All rights
+        reserved.</span><br />
+    粤ICP备14066312号-1 欢迎合作:qibila#163.com|<script src="http://s23.cnzz.com/stat.php?id=1253259831&web_id=1253259831&show=pic"  language="JavaScript"></script>
+</div>
+
+<div id="online" class="online">
+    <div class="onlinetext">
+        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=337662980&amp;site=qq&amp;menu=yes"
+            class="q4" target="_blank" title="航展门票咨询Sugar"></a><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=115966238&amp;site=qq&amp;menu=yes"
+                class="q2" target="_blank" title="航展门票咨询Ava"></a><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=337662980&amp;site=qq&amp;menu=yes"
+                    class="q3" target="_blank" title="航展门票咨询客服"></a><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=149228102&amp;site=qq&amp;menu=yes"
+                        class="q1" target="_blank" title="航展门票投诉建议"></a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var stime = '';
+        now = new Date(), hour = now.getHours();
+        if (hour < 6) { stime = "凌晨好！" }
+        else if (hour < 9) { stime = "早上好！" }
+        else if (hour < 12) { stime = "上午好！" }
+        else if (hour < 14) { stime = "中午好！" }
+        else if (hour < 17) { stime = "下午好！" }
+        else if (hour < 19) { stime = "傍晚好！" }
+        else if (hour < 22) { stime = "晚上好！" }
+        else { stime = "夜里好！" }
+        $('#stime').text(stime);
+
+        $('#changecity').click(function () {
+
+            if ($('#citylist').hasClass("citydis")) {
+                $('#citylist').removeClass('citydis');
+                $('#citys').addClass("cityshow");
+
+            } else {
+                $('#citylist').show("2000");
+                $('#citylist').addClass('citydis');
+                $('#citys').removeClass("cityshow");
+            }
+        })
+    });
+
+      
+</script>
+    <script type="text/javascript">        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc60e4d4891cde5ef99cc098806ec5f51' type='text/javascript'%3E%3C/script%3E")) </script>

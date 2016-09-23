@@ -1,0 +1,48 @@
+﻿@import url("common.css");
+@import url("style.css");
+.login-box{margin:0 auto;padding:40px 40px 80px 40px;width:760px;}
+	.login-box .left-box{ float:left; padding-top:10px; width:400px; }
+		.login-box .left-box dl{clear:both; padding:8px 0; line-height:28px;font-size:14px;font-family:"Microsoft Yahei"; }
+		.login-box .left-box dl dt{display:block; float:left;width:70px; }
+		.login-box .left-box dl dd{ margin-left:70px;}
+		.login-box .left-box #msgtips{display:none; font-size:12px; color:#F00;}
+		.login-box .left-box dl dd .btn_login{display:inline-block; margin-right:10px; padding:10px 30px; cursor:pointer; border:1px solid #16699b; background:#1E7BB3; color:#fff; font-size:18px; line-height:1em; font-family:"Microsoft Yahei"; }
+	.login-box .center-box{ float:left; margin-left:20px; width:1px; height:240px; background:url(../images/login_line.gif) no-repeat; overflow:hidden; }
+	.login-box .right-box{ display:inline; float:right; margin-top:20px; width:270px; }
+		.login-box .right-box p{ text-align:center; font-size:14px; color:#F00; font-family:"Microsoft Yahei"; }
+			.login-box .right-box p.button{ padding:8px 0 0;}
+			.login-box .right-box p.button a{ display:inline-block; padding:10px 30px; border:1px solid #408f40; background:#52A152; color:#fff; font-size:18px; line-height:1em; font-family:"Microsoft Yahei"; }
+			.login-box .right-box p.button a:hover{ text-decoration:none; }
+			.login-box .right-box p.note{ padding-bottom:20px; font-size:18px; color:#666; font-weight:500; line-height:1.8em; }
+	.login-box .center-box{float:left; margin-left:20px; width:1px; height:240px; background:url(../images/login_line.gif) no-repeat; overflow:hidden; }
+.oauth_inner{padding-top:50px;}
+	.oauth_inner label{display:block;float:left;width:100px;height:36px;line-height:36px;color:#777;font-size:14px;font-family:"Microsoft Yahei";}
+	.oauth_inner .oauth_list{margin-left:100px;}
+	.oauth_inner .oauth_list a{display:block;float:left; margin:6px 15px 6px 0;line-height:35px;vertical-align:middle;}
+	.oauth_inner .oauth_list a img{vertical-align:middle;}
+/*会员注册*/
+.reg-box{margin:0 auto;padding:0 50px;}
+.reg-top ul{ padding:10px 0 10px; height:23px; border-bottom:1px solid #DADADA; }
+	.reg-top ul li{ float:left; padding:0 50px 0 10px; height:18px; font:bold 18px "Microsoft Yahei"; color:#666; }
+	.reg-top ul li em{ margin-right:5px; padding:2px 5px; background:#999; color:#FFF; font-size:12px; font-family:Verdana, Geneva, sans-serif; }
+	.reg-top .step .step1,
+	.reg-top .stepsendmail .step2,
+	.reg-top .stepcheckmail .step3,
+	.reg-top .stepcheckerror .step2,
+	.reg-top .stepverify .step2,
+	.reg-top .stepsucceed .step3{color:#FF6C1E;}
+	.reg-top .step .step1 em,
+	.reg-top .stepsendmail .step2 em,
+	.reg-top .stepcheckmail .step3 em,
+	.reg-top .stepcheckerror .step2 em,
+	.reg-top .stepverify .step2 em,
+	.reg-top .stepsucceed .step3 em{background:#FF6C1E; }
+.reg-con{margin-top:30px;}
+	.reg-con dl{clear:both;padding:8px 0;font-size:14px; line-height:28px;font-family:"Microsoft Yahei";}
+	.reg-con dl dt{display:block; float:left;width:150px;text-align:right;}
+	.reg-con dl dt em{padding-right:5px; color:#FF0000; font-style:normal;}
+	.reg-con dl dd{margin-left:150px; padding-left:10px;}
+	.reg-con dl dd i{display:block; line-height:28px; color:#999; font-size:12px; font-style:normal; }
+	.reg-con dl dd .btn_submit{padding:10px 30px;border:1px solid #cf5413;background:#FF6C1E;color:#fff;font-size:18px;line-height:1em;font-family:"Microsoft Yahei";cursor:pointer; }
+/*授权登录*/
+.oauth_box{margin:0 auto;padding:40px 40px 80px 40px;width:760px;}

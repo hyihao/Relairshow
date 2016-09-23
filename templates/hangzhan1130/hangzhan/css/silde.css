@@ -1,0 +1,433 @@
+﻿
+/*
+	Slideshow
+*/
+/*position:absolute;
+	top:15px;
+	left:4px;
+	z-index:100;*/
+	
+#slides {	
+	left:50%;	
+	margin-left: -960px;
+	overflow: hidden;
+	position: relative;
+	width: 1920px;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+
+.slides_container {
+	width:1920px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+.slides_container div.slide {
+	width:1920px;
+	height:562px;
+	display:block;
+}
+
+
+/*
+	Next/prev buttons
+*/
+
+#slides .next,#slides .prev {
+	position:absolute;
+	top:107px;
+	left:-39px;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+
+#slides .next {
+	left:585px;
+}
+
+/*
+	Pagination
+*/
+
+.pagination {
+	
+	height: 80px;
+	position: absolute;
+	left: 69%;
+	top: 87%;	
+	z-index: 20;
+}
+
+.pagination li {
+	float: left;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	margin-right: 10px;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 14px;
+	background: #444;
+	filter: alpha(opacity =80);
+	opacity: 0.8;
+}
+.narrow_page .pagination li 
+{
+	background: white;
+}
+.narrow_page .pagination li a 
+{
+	color: #F60;
+}
+.pagination li a {
+	font-family: Arial;
+	font-size: 20px;
+	color: white;
+}
+.pagination li.current
+{
+	background: #F60;
+}
+
+.pagination li.current a 
+{
+	color: #555;
+	background: #F60;
+	color: white;
+	filter: alpha(opacity =100);
+	opacity: 1;
+}
+.pagination li.current a:hover,.pagination li a:hover
+{
+	text-decoration:none;	
+}
+
+
+
+.caption {
+z-index: 500;
+position: absolute;
+bottom: -35px;
+left: 0;
+height: 30px;
+padding: 5px 20px 0 20px;
+background: black;
+background: rgba(0, 0, 0, .5);
+width: 540px;
+font-size: 1.3em;
+line-height: 1.33;
+color: white;
+border-top: 1px solid black;
+text-shadow: none;
+}
+
+.tuan_large
+{
+	width: 300px;	
+	float: left;
+	padding: 0px 0px 0px 10px;	
+	background: white;
+	box-shadow: 0 1px 1px rgba(34, 25, 25, 0.1);
+	-webkit-box-shadow: rgba(34, 25, 25, 0.1) 0px 1px 1px;
+	border: 1px solid #E6E4E4;
+	overflow: hidden;		
+}
+.tuan_bar_banner
+{
+	width:628px;
+	margin-left:30px;
+	float:left;		
+}
+.cmn_title
+{
+	height: 25px;
+	line-height: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	font-weight: bolder;
+	font-size:13px;
+}
+.rec_title
+{	
+	float: left;
+	height: 20px;
+	padding:0px 8px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+	text-align: center;
+	background: #222;
+	
+}
+.rec_list li .rec_title
+{
+	color: white;
+}
+.rec_list 
+{
+	padding-bottom:13px;
+	border-bottom:dashed 2px #D9D9D9;
+}
+.rec_list li 
+{
+
+	line-height: 20px;
+	margin-top: 12px;
+	overflow: hidden;
+}
+ .rec_list li span a {
+padding-left: 5px;
+padding-right: 3px;
+white-space: nowrap;
+color:#222;
+}
+ .rec_list li span .red_f {
+color: #F69;
+}
+
+
+/*********pro_banner*********/
+.pro_banner,.pro_main ,.TMoulde
+{
+	clear:both;
+	width:990px;
+	margin:0 auto;	
+	padding:25px 0px 10px 0px ;
+	background-color:White;
+}
+.pro_baby img
+{
+	
+	
+}
+
+.pro_banner .indent-col-main 
+{
+	position:relative;
+	width:100%;
+}
+.block-slider 
+{
+	position:relative;
+	padding:0px;
+	overflow:hidden;
+	margin-bottom:1px;
+}
+
+.block-slider ul 
+{
+	position:relative;
+	HEIGHT: 521px;
+	overflow:hidden;
+}
+.block-slider ul li 
+{	
+	position:relative;
+	background-color: white;
+	display: inline-block;
+	float: left;
+	letter-spacing: normal;
+	padding: 5px;
+	overflow: hidden;
+	vertical-align: top;
+	width: 230px;
+	word-spacing: normal;
+	margin-left: 6px;
+	margin-top: 6px;
+	height:511px;
+}
+
+.block-slider ul li  img
+{
+	vertical-align: top;
+	max-width: 230px;
+	width:230px;
+}
+
+.block-slider ul li a 
+{
+	color: white;
+	display: inline-block;
+	height: 100%;
+	text-decoration: none;
+	width: 100%;
+}
+
+.product-name
+{
+	POSITION: absolute;
+	TEXT-ALIGN: left;
+	PADDING-BOTTOM: 15px;
+	MARGIN: 0px auto;
+	PADDING-LEFT: 15px;
+	WIDTH: 155px;
+	BOTTOM: 0px;
+	PADDING-RIGHT: 0px;
+	DISPLAY: none;
+	BACKGROUND: url(images/bg_col_main.png) 0px 0px;
+	PADDING-TOP: 15px;
+	LEFT: 0px;
+	margin: 0px auto;
+	display:block;
+}
+.block-slider ul li span
+{	
+	width:230px;
+	line-height: 16px;
+	padding: 10px 0;
+	background-color: black;
+	font-size: 14px;
+	text-align: center;
+	color: white;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	position: absolute;
+	left: 5px;
+	bottom:-400px;	
+	display: inline-block;	
+}
+
+.block-slider UL LI A:hover
+{
+	display:block;
+	text-decoration:none;
+} 
+ 
+ 
+#left_but 
+{
+	width: 50px;
+	height: 80px;
+	Z-INDEX: 999; 
+	POSITION: absolute;
+	MARGIN: 0px; 
+	BACKGROUND: url(../images/prev_hover.jpg) no-repeat left top;
+	TOP: 180px; 
+	CURSOR: pointer; 
+	LEFT:-50px;
+}
+.over#left_but {
+	BACKGROUND: url(../images/prev_hover.gif) no-repeat left top
+}
+#right_but 
+{
+	width: 50px;
+	height: 80px;
+	POSITION: absolute; MARGIN: 0px; BACKGROUND: url(../images/main_best_b02.jpg) no-repeat left top;  TOP: 180px;  CURSOR: pointer; RIGHT: -50px
+}
+.over#right_but {
+	BACKGROUND: url(../images/next_hover.jpg) no-repeat left top
+}
+
+
+
+.TMoulde .moulde_main
+{
+	margin:10px 0px 5px 10px;	
+	height:auto;
+	overflow:hidden;
+}
+
+.TMoulde .moulde_main .item
+{
+	width: 232px;
+	margin-right: 13px;
+	float:left;
+	font-size:12px;
+}
+
+
+
+.TMoulde .item .detail a.item-name {
+display: block;
+margin: 10px 3px 15px;
+line-height: 16px;
+height: 32px;
+overflow: hidden;
+color: #666;
+text-decoration: none;
+}
+
+.TMoulde .item .detail 
+{
+width: 232px;
+}
+.TMoulde .item .detail {
+	border: 0px;
+	background: white;
+	color: #666;
+	overflow: hidden;
+}
+
+.TMoulde .item .photo a {
+width: 230px;
+height: 230px;
+}
+
+.TMoulde .item .photo {
+width: 232px;
+height: 232px;
+}
+
+.TMoulde .item .photo a img {
+max-height: 230px;
+max-width: 230px;
+}
+
+.TMoulde .item .detail .attribute {
+	padding: 0px 3px;
+}
+.TMoulde .item .detail .attribute::after {
+	display: table;
+	content: '';
+}
+
+.TMoulde .item .detail .attribute .cprice-area
+{
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 8px;
+}
+
+.symbol {
+color: #B00000;
+}
+
+
+
+
+.TMoulde .item .detail .attribute .cprice-area .c-price {
+	color: #B00000;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+
+.TMoulde .item .detail .attribute .sale-area {
+float: left;
+white-space: nowrap;
+margin-right: 15px;
+margin-bottom: 8px;
+}
+
+.TMoulde .item .detail .attribute .sale-area .sale-num {
+color: #555;
+}

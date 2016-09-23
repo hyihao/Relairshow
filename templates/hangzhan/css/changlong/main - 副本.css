@@ -1,0 +1,1091 @@
+﻿body
+{
+	background-image:none;
+}
+.index_page
+{
+	background: #000 url(../../Images/changlong/oc_big_img.jpg) center 0 no-repeat;
+    background-attachment: fixed;
+    background-position:0px -80px;
+    zoom:1;
+}
+.menpiao_page
+{
+	background: #000 url(../../Images/changlong/oc_big_img1.jpg) center 0 no-repeat;
+	background-position: 0px -100px;
+	background-attachment: fixed;
+	zoom:1;
+}
+.menpiao_order
+{
+	background: #000 url(../../Images/changlong/oc_big_img0.jpg) center 0 no-repeat;
+	background-position: 0px -100px;
+	background-attachment: fixed;
+	zoom:1;
+}
+.menpiao_page .head_nav,.menpiao_order .head_nav
+{
+	position:static;
+}
+.narrow_page
+{
+	height:auto !important; 	
+	overflow:hidden; 
+	zoom:1;
+}
+.narrow_page .clsPanle {
+width: 1200px;
+}
+.clsPanle {
+margin: 0 auto;
+width: 990px;
+height: 100%;
+}
+.clsPanle:after{
+content: ".";
+clear: both;
+display: block;
+height: 0;
+visibility: hidden;
+}
+.head_nav {
+position: fixed;
+top: 0px;
+width: 100%;
+z-index: 9999;
+background: url(../../Images/changlong/mini_nav.jpg) repeat-x;
+display:block;
+_position: absolute;
+_top: expression(eval(document.documentElement.scrollTop+0));
+height: 47px;
+}
+.mini_nav_wrap
+{
+    position: relative;
+}
+.mini_logo {
+background: url(../../Images/changlong/mini_logo.jpg) 25px 0px no-repeat;
+width: 123px;
+height: 42px;
+float: left;
+}
+.mini_logo a {
+width: 123px;
+height: 42px;
+display: block;
+}
+.head_nav ul {
+float: right;
+width: 801px;
+height: 47px;
+}
+.head_nav ul li {
+float: left;
+}
+.head_nav ul li a {
+height: 47px;
+width: 100px;
+text-align: center;
+line-height: 40px;
+font-family: "微软雅黑";
+font-size: 14px;
+color: #656565;
+display: block;
+}
+.head_nav ul li a:hover{ color:#8a629b; text-decoration:none;}
+
+.mainbody{
+    width: 1180px;
+    margin: 0 auto;
+    position: relative;
+    zoom: 1;
+    z-index: 2;
+    margin-top: 350px;
+    background: #fff;
+	height:auto !important;    
+    zoom:1;
+    margin-bottom:100px;
+}
+.menpiaobody
+{
+	margin-top: 0px;
+}
+.orderbody
+{
+	margin-top:50px;
+}
+#ind_ydfb 
+{
+	display:block;
+	position:absolute; 
+	right:250px; 
+	top:-70px;
+	background:url(../../Images/changlong/oc_booking.png) no-repeat;
+	width:183px;
+	height:55px; padding:20px 0 0 63px; 
+	color:#ffffff;
+	font-size:23px;
+	font-weight:bold;
+}
+.m_conter {
+background: #fff;
+width: 1180px;
+margin: 0 auto;
+position: relative;
+zoom: 1;
+padding: 20px 20px 0;
+z-index: 2;
+}
+.clongmenpiao {
+background: white;
+width: 1180px;
+margin: 0 auto;
+position: relative;
+zoom: 1;
+padding: 20px 10px 20px 10px;
+z-index: 2;
+}
+.clsalpha
+{
+	position:relative;
+	margin:15px auto;
+	height: 350px;
+	
+}
+.clongmenpiao_title
+{
+	position: absolute;
+	width: 1170px;	
+	border-radius: 4px;
+	overflow: hidden;
+	height: 320px;
+	padding: 15px;
+}
+.mainfun
+{ 
+    margin: 10px -11px 0 -9px;
+    zoom: 1;
+    overflow: hidden;
+}
+.mainfun li
+{ 
+    float: left;
+    width: 300px;
+}
+.mainfun li a {
+height: 265px;
+display: block;
+position: relative;
+overflow: hidden;
+/*height: 270px;*/
+cursor: pointer;
+padding: 8px;
+border: 1px solid #fff;
+}
+.mainfun .list_pic {
+width: 280px;
+height: 158px;
+display: block;
+background-color:#eee;
+}
+.mainfun .list_title {
+font-size: 16px;
+font-weight: normal;
+margin: 10px 0 9px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+color: #333;
+width: 100%;
+}
+.dest-header
+{
+	position:absolute;		
+	width:430px;	
+	top:-270px;	
+	border-radius: 4px;	
+	overflow:hidden;
+	height:215px;	
+	padding: 15px;	
+}
+
+.dest-header .clsheader
+{
+	position:absolute;	
+	height: 215px;
+	width:430px;	
+	z-index: 9;	
+}
+.clongmenpiao_title .clongmenpiao_title_content {
+position: absolute;
+height: 320px;
+width: 1150px;
+z-index: 9;
+}
+.dest-header .alpha_bg ,.clongmenpiao_title .alpha_bg 
+{
+	position:absolute;	
+	width: 100%;
+	height: 100%;
+	z-index: 8;
+	opacity: .6;
+	filter: alpha(opacity=60);
+	border-radius: 4px;
+}
+.clongmenpiao_title .alpha_bg 
+{
+	height:350px;
+}
+.dest-header h1,.deal_content h1 {
+margin-bottom: 10px;
+font-size: 30px;
+line-height: 30px;
+padding-bottom: 20px;
+color: #F2E409;
+
+}
+.dest-header h1
+{
+	border-bottom: 1px solid #666;
+}
+.dest-header h1 small {
+font-size: 14px;
+}
+.dest-header .link-btn,.mp-ticket-type{
+background-color: #26A0DA;
+border-radius: 5px;
+color: white;
+padding: 2px 5px;
+}
+.mp-ticket-type
+{
+	text-align:center;
+	margin-left:25px;
+}
+.strike
+{
+	text-decoration: line-through;
+}
+
+.dest-header p {
+	color: #EEE;
+	font-size:14px;
+	line-height:27px;
+	margin: 0 0 10px;
+}
+
+.mainfun .list_time {
+color: #ff6701;
+margin-bottom: 10px;
+width: 100%;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+height: 18px;
+}
+ .mainfun li a:hover {
+background: #fff;
+text-decoration: none;
+border-color: #ff6701;
+}
+.list_title:hover{text-decoration:underline;}
+.fun_desp
+{
+    font-size:16px;
+    margin-right: 2px;
+    color: #ff6701;
+    margin-bottom: 15px;
+}
+:link,:visited,ins{text-decoration:none;}
+
+/**********upcoming**********/
+.upcoming
+{
+   margin: auto;
+   padding: 15px 0 30px 0; 
+}
+.upcoming .upcoming_hear {
+border-left: 10px solid #ff6d00;
+}
+.upcoming .upcoming_hear h2 {
+font-size: 20px;
+font-weight: normal;
+line-height: 48px;
+padding: 0 15px;
+}
+.upcomingRegion
+{
+    border-top: 2px dashed #d9d9d9;
+    margin-top: 25px;
+    position: relative;
+    zoom: 1;
+}
+
+.i_swwantlist div.lastcol, .i_swwantlist .nextcol 
+{    
+    background: url(http://static1.mtime.cn/theater/20141117160238/images/index.jpg) no-repeat 0 0;
+    width: 24px;
+    height: 59px;
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    CURSOR: pointer;
+}
+.i_swnowlist div.lastcol, .i_swwantlist div.lastcol {
+background-position: 0 -114px;
+left: -31px;
+}
+.i_swnowlist div.nextcol, .i_swwantlist div.nextcol {
+background-position: -24px -114px;
+right: -31px;
+}
+.i_swwantlister 
+{
+    position: relative;
+    overflow: hidden;
+    top: -9px;
+    left: 5px;   
+    overflow:hidden;zoom:100%;
+}
+
+.upcoming_item{
+width: 280px;
+float: left;
+display: inline;
+margin-right: 15px;
+}
+.i_swwantlister li i.dot {
+background: url(http://static1.mtime.cn/theater/20141117160238/images/index.jpg) no-repeat -220px 0;
+width: 17px;
+height: 17px;
+display: block;
+overflow: hidden;
+}
+.i_swwantlister p.day {
+color: #7b7b7b;
+font-size: 14px;
+margin-top: 10px;
+margin-bottom:17px;
+}
+.i_swwantlister p.day strong {
+font-size: 20px;
+line-height: 1em;
+font-weight: normal;
+}
+.i_wantmovie {
+min-height: 152px;
+_height: 152px;
+color: #323232;
+font-size: 14px;
+}
+
+.i_wantmovie a {
+color: #323232;
+display: block;
+position: relative;
+overflow: hidden;
+cursor: pointer;
+
+}
+.i_wantmovie a:hover {
+text-decoration: none;
+}
+.i_wantmovie h3 {
+padding-top: 7px;
+font-size: 16px;
+font-weight: normal;
+}
+.i_wantmovie p {
+margin-top: 6px;
+font-size:14px;
+}
+.funserv
+{
+	margin-top: 25px;
+	position: relative;
+	zoom: 1;
+	border-bottom: 1px dotted #DEDEDE;
+	
+}
+.funserv li
+{
+	display: block;
+	width: 379px;
+	min-height: 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+	margin-left:20px;
+}
+.funserv li:first
+{
+	margin-left:0px;
+}
+.quark
+{
+	width:100%;
+	float:left;
+	display: block;
+	min-height: 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	zoom:1;
+}
+.quark .quark-inner::after {
+content: " ";
+display: block;
+position: absolute;
+background: transparent url(http://cdn.hualvtu.com/bootstrap2/css/img/slideShowIcon.png) no-repeat center center;
+}
+.quark .cover {
+	display: block;
+	width: 100%;
+	height: 230px;
+	position: relative;
+	overflow:hidden;
+}
+
+.quark-inner {
+	position: relative;
+	background-color: #2E2D2D;
+	margin-bottom: 25px;
+	margin-right: 15px;
+	width:364px;
+	height:230px;
+	zoom:1;
+}
+.quark-right
+{
+	margin-left:15px;
+	margin-right:0px!important;
+}
+
+
+.topserv .quark-inner {
+	margin-bottom: 50px;
+}
+.middle_quark
+{
+	margin-left: 15px;
+	margin-right: 15px;
+	position: relative;
+	background-color: #2E2D2D;
+	margin-bottom: 25px;
+}
+.middle_quark a
+{
+	display:block;
+}
+.middle_quark img {
+width: 349px;
+height: 510px;
+position: relative;
+}
+.quark-inner .sight-desc
+{
+	height:100%;
+	width:70%;
+}
+.sight-desc
+{
+position: absolute;
+height: 350px;
+overflow: hidden;
+width:349px;
+text-align: center;	
+overflow:hidden;
+bottom:0;
+left:0;
+}
+ .funserv .ln {
+display:block;
+width: 1px;
+position: absolute;
+border-left: 1px dotted #DEDEDE;
+overflow:hidden;
+zoom:1;
+top:0;
+}
+.funserv .ln-one {
+height: 510px;
+left: 33.050847457627124%;
+}
+.funserv .ln-two {
+height: 510px;
+left: 66.8152542372884%
+}
+.funcls
+{
+	width:100%;
+	height:536px;
+	position:relative;
+}
+
+.sight-desc div {
+position: absolute;
+height: 100%;
+width: 100%;
+bottom: 0;
+left: 0;
+z-index: 9;
+}
+
+.quark-inner .sight-desc p.desc-content {
+	margin-top:0px;
+}
+
+.sight-desc p.desc-content {
+margin-top: 10%;
+padding: 0 10px;
+line-height: 38px;
+font-size:30px;
+}
+.sight-desc p {
+color: white;
+font-family: 'Microsoft Yahei';
+font-size: 14px;
+height: auto;
+}
+.sight-desc .alpha_bg {
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+z-index: 8;
+}
+
+
+
+.quark .border-below {
+display: none;
+border-bottom:1px dotted #DEDEDE;
+width: 100%;
+position: absolute;
+height: 1px;
+bottom: -25px;
+overflow:hidden;
+}
+.topserv .border-below 
+{
+	display:block;
+}
+.quark_text
+{
+	height: 100%;
+	left: 0;
+	right: 30%;
+	top: 0;
+	bottom: 0;
+	display: block;
+	position:absolute;
+	cursor: pointer;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.6);	
+	zoom: 1;
+	text-decoration: none;
+	background-color: #444;
+	opacity: .5;
+	filter: alpha(opacity=50);
+}
+
+.quark-inner a img
+{
+	width: 364px;
+	height: 230px;	
+	position: relative;
+}
+
+.quark_textinner
+{
+	display: table;
+	table-layout: fixed;
+	height: 100%;
+}
+.inner_title
+{
+	height: 100%;
+	padding: 10px 30px 0 16px;
+	display: table-cell;
+	vertical-align: top;
+	text-align: left;
+	position: relative;
+}
+ .title_text
+{
+	font-size: 30px;
+	line-height: 36px;
+	text-transform: none;
+	word-wrap: break-word;
+	color: white;
+	-webkit-transition: color 600ms ease;
+	-moz-transition: color 600ms ease;
+	transition: color 600ms ease;
+	text-align: left;
+	padding: 10px 30px 0 16px;
+}
+
+.bylineWrapper
+{
+	width:100%;	
+	font-size:14px;
+	color:White;
+}
+.bylineWrapper tr td
+{
+	font-size:16px;
+}
+.bylineWrapper tr
+{
+	height:28px;
+}
+.alpha_bg {
+position: absolute;
+left: 0;
+top: 0;
+z-index: 1;
+background-color: black;
+opacity: .5;
+filter: alpha(opacity=50);
+}
+
+.deal_content
+{
+	float: left;
+	width: 560px;
+	color: white;
+	margin-left:40px;
+}
+.deal-component-expiry li span
+{ font-size:14px;}
+.deal_content .deal-component-expiry .deal-component-inline-text-container
+{
+	width:480px;	
+}
+.deal_content .extra
+{
+	padding-top:15px;
+	margin-top:10px;
+	font-size:14px;
+}
+.deal_content .extra  dl dt,.deal_content .extra  dl dd a 
+{
+	color:White;
+	font-size:14px;
+}
+.deal_content .extra dl dt
+{
+	padding-right:15px;
+}
+.pro-tabs
+{
+	z-index: 998;
+	border-bottom: 2px solid #09F;
+	background-color: #EEE;
+	width: 1180px;
+}
+.pro-tabs ul li  {
+margin-right: 8px;
+font: 400 18px/39px "Microsoft Yahei",Arial,sans-serif;
+color: #333;
+float:left;
+}
+.pro-tabs ul li a.current  {
+border-color: #09F;
+background: #09F;
+color:White;
+}
+.pro-tabs ul li a
+{
+	display:block;
+height: 39px;
+padding: 0 24px;
+border: 1px solid #D9D9D9;
+border-bottom: 0 none;
+background: white;
+-webkit-border-radius: 2px 2px 0 0;
+-moz-border-radius: 2px 2px 0 0;
+border-radius: 2px 2px 0 0;
+cursor: pointer;
+color:#333;
+}
+.product_ticket {
+margin: 15px 0 0;
+}
+.product_ticket_item {
+margin: 20px 0 -1px;
+border: 1px solid #C8C8C8;
+}
+.mp-ticket-catetitle {
+height: 40px;
+line-height: 40px;
+width: 100%;
+overflow: hidden;
+background-color: #FAFAFA;
+color: #999;
+border-bottom: 1px solid #DFDFDF;
+}
+.mp-ticket-catetitle span
+{
+	width: 330px;
+padding-left: 25px;
+}
+table {
+border-collapse: collapse;
+}
+colgroup {
+display: table-column-group;
+}
+col {
+display: table-column;
+}
+.ticket_item_inner {
+border-width: 1px;
+border-style: solid;
+border-color: white white #EAEAEA;
+width:100%;
+table-layout: fixed;
+}
+.ticket_item_inner thead tr 
+{	
+	height: 30px;
+	background-color: #EEE;
+}
+.ticket_item_inner tr td
+{
+	font-size:14px;
+}
+
+.ticket_item_inner thead td {
+color: #999;
+background-color: #EEE;
+padding: 3px 0 3px 0;
+font-size:13px;
+border:0px;
+}
+.ticket_item_inner tr
+{
+	height: 70px;
+}
+.ticket_item_inner .ticket_item_title
+{
+	
+}
+.ticket_item_inner .ticket_item_title h3
+{
+	margin: 0 0 0 20px;
+	font-size: 14px;
+	line-height: 20px;
+	color: #09F;	
+	cursor: pointer;
+}
+.ticket_item_inner .ticket_item_title h3 a
+{
+	color: #09F;
+}
+.hover_bg
+{
+	border-bottom: 1px solid #EAEAEA;
+}
+.del
+{
+	color: #999;
+	text-decoration: line-through;
+}
+.dfn {
+font-style: normal;
+font-size: 14px;
+font-family: Arial !important;
+}
+.ticket_item_yprice .del strong {
+font-weight: normal;
+font-size:14px;
+margin-left: 3px;
+}
+.base_price {
+color: #F60;
+font-family: Tahoma;
+}
+.base_price dfn {
+font-family: Arial, Simsun;
+font-size: 14px;
+}
+.base_price strong {
+font-weight: bold;
+font-family: Tahoma;
+font-size:22px;
+}
+
+.detail_booking_btn {
+display: inline-block;
+width: 54px;
+height: 22px;
+line-height: 20px;
+text-align: center;
+background-color: #FDAF00;
+color: white;
+box-shadow: 0 1px 1px #ccc;
+border-radius: 2px;
+
+}
+.detail_booking_btn:hover
+{
+	background-color: #FF971C;
+	text-decoration: none;
+	color: white;
+	
+}
+.ticket_item_type
+{
+	color: #999;
+}
+.product_more_info
+{
+	margin: 15px 0;
+}
+.product_more_major {
+float: left;
+width: 895px;
+}
+.wrap_side {
+float: right;
+width: 278px;
+border: 1px solid #E9E9E9;
+background-color: white;
+}
+.product_more_info_des
+{
+	padding: 10px 14px;
+	border: 1px solid #E9E9E9;
+	background: white;
+}
+.box_tit
+{
+	line-height: 23px;
+font-size: 24px;
+color: #09F;
+border-bottom: 1px dashed #E0E0E0;
+padding-bottom: 8px;
+margin-top:10px;
+}
+  .box_tit .tit {
+line-height: 24px;
+}
+ .box_tit .icon {
+float: left;
+display: inline;
+width: 8px;
+height: 19px;
+margin: 2px 10px 0 0;
+background-color: #09F;
+border-radius: 3px;
+overflow: hidden;
+}
+.box_tit .txt {
+float: left;
+display: inline;
+line-height: 24px;
+font-size: 24px;
+}
+.tab_inner p span,.tab_inner p  {
+font-size: 14px;
+line-height: 26px;
+}
+.cls_msg_tips
+{
+	background: #FF971C;
+FONT-SIZE: 14px;
+MARGIN-LEFT: -1px;
+WIDTH: 100px;
+HEIGHT: 33px;
+TEXT-ALIGN: center;
+margin-bottom:10px;
+}
+.cls_msg_tips span
+{
+	DISPLAY: block;
+	OVERFLOW: hidden;
+	WIDTH: 100px;
+	COLOR: #fff;
+	LINE-HEIGHT: 33px;
+	HEIGHT: 33px;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+/*******tra ul *******/
+.tra_ul {
+width: 100%;
+margin: 10px 0 10px 0;
+}
+.tra_ul li {
+display: inline-block;
+width: 100%;
+border-bottom: 1px dashed #C6C6C6;
+}
+.tra_ul li img {
+float: left;
+display: inline;
+margin: 30px 20px 0 25px;
+width: 70px;
+height: 71px;
+}
+.tra_ul_r {
+float: left;
+padding: 30px 0 35px 30px;
+border-left: 1px dashed #C6C6C6;
+position: relative;
+width: 590px;
+}
+.tra_ul_r h2 {
+font: bold 20px "微软雅黑";
+margin-bottom: 10px;
+padding-left: 0;
+}
+.tra_ul_r span {
+display: block;
+position: absolute;
+left: -6px;
+top: -1px;
+background: url(../../images/hang) no-repeat;
+width: 11px;
+height: 6px;
+}
+/*******tra ul*******/
+
+/*********progress_bar******/
+
+.progress_bar{
+	width: 100%;
+	padding: 30px 0 10px;
+}
+.progress_bar li {
+float: left;
+width: 25%;
+border-top: 6px solid #D7D7D7;
+text-align: center;
+color: #999;
+position: relative;
+line-height: 42px;
+}
+.progress_bar li i {
+position: absolute;
+left: 50%;
+margin-left: -10px;
+top: -13px;
+height: 20px;
+width: 20px;
+background: url(../../Images/changlong/un_tickets.png) -28px 0 no-repeat;
+}
+.progress_bar .complete {
+color: #FF9813;
+border-top: 6px solid #FF9813;
+}
+.progress_bar .complete i {
+background-position: -0px 0;
+}
+/*********progress_bar******/
+
+.top_warn
+{
+	margin:10px 0px;
+}
+.top_warn i
+{
+	width: 20px;
+height: 20px;
+float:left;
+display:block;
+background: url(../../Images/changlong/un_tickets.png) -56px 0px  no-repeat;
+
+}
+.top_warn em
+{
+	font:12px;
+	color:Red;
+	font-weight:bold;
+}
+.ticket_item_inner .reduce,.ticket_item_inner .reduce_disable,.ticket_item_inner .subjoin,.ticket_item_inner .subjoin_disable
+{
+	background: url(../../Images/changlong/un_tickets.png)  no-repeat;
+}
+.ticket_item_inner .reduce,.ticket_item_inner .reduce_disable,.ticket_item_inner .subjoin,.ticket_item_inner .subjoin_disable{
+background-color: white;
+border: 1px solid #CCC;
+display: inline-block;
+height: 22px;
+vertical-align: middle;
+width: 22px;
+text-indent: -999em;
+overflow:hidden;
+}
+.ticket_item_inner .reduce {
+background-position: -95px 2px;
+}
+.ticket_item_inner .subjoin{
+margin-left: -5px;
+background-position: -76px 2px;
+}
+.copies_num {
+border: 1px solid #CCC;
+color: black;
+height: 16px;
+line-height: 16px;
+text-align: center;
+vertical-align: middle;
+width: 16px;
+margin-left: -5px;
+padding: 3px;
+border: solid 1px #CCC;
+box-shadow: 1px 1px 3px #DDDDDD inset;
+}
+.clongmenpiao .orderinfo
+{	
+	border: 1px solid #D5D5D5;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+.clongmenpiao .orderinfo h2
+{
+	background-color: #F1F1F1;
+	height: 32px;
+	padding: 0 20px;
+}
+.clongmenpiao .orderinfo h2 strong
+{
+	
+	font: 18px/32px "Microsoft Yahei",simsun;
+}
+.clongmenpiao .orderinfo h2 span
+{
+	margin-left: 20px;
+	font-size: 12px;
+	color: #A1A1A1;
+}
+.form_box
+{
+	margin:30px 0px;
+}
+.form_box dl{clear:both;padding:8px 0;font-size:12px;line-height:28px;}
+	.form_box dl dt{display:block;float:left;width:150px;text-align:right;}
+	.form_box dl dt em{padding-right:5px;color:#FF0000;font-style:normal;}
+	.form_box dl dd{margin-left:150px; padding-left:10px;}
+	.form_box dl dd i{display:block;line-height:28px;color:#999;font-size:12px;font-style:normal;}
+	.form_box dl dd em{line-height:28px;color:#999;font-size:12px;font-style:normal;}
+	.form_box dl dd .btn_submit{padding:10px 30px;border:1px solid #429342;background:#52A152;color:#fff;font-size:14px;line-height:1em;cursor:pointer;font-family:'Microsoft YaHei';}
+
+.btn-success {
+background-color: #52A152;
+background-image: -moz-linear-gradient(center top , #5FBE5F, #52A152);
+border-bottom: 1px solid #417F41;
+text-shadow: 0 -1px 0 #52A152;
+}
+.total
+{
+	margin:10px 0px;
+}
+.total .order_amount
+{
+}

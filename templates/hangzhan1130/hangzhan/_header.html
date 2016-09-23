@@ -1,0 +1,48 @@
+﻿<div class="clscontent">
+    <!--logo-->
+    <div class="clshead">
+        <div class="clslogo" title="珠海航展门票">
+            <h1>
+                <a href="<%linkurl("index")%>" title="2014航展门票">2014珠海航展官网指定销售商</a></h1>
+        </div>
+
+        <!--<div class="f_l kfzixun ">
+            <p class=" f_l">航展门票咨询热线</p>
+            <p class="f_l">400 676 0405</p>
+        </div>-->
+        <div class="clspreson">                      
+            <tt>Hi,</tt><em><label id="stime"></label>
+            </em>
+            
+            <%if IsUserLogin()%>
+     <a href="<%linkurl("usercenter","exit")%>">退出</a>!
+      <a href="<%linkurl("usercenter","index")%>"><%if Session["nickname"]!=null %><%=Session["nickname"] %>  <%else%>会员中心<%/if%></a>
+      <%else%>
+      <a href="<%linkurl("queryorder")%>" style="color: #A9A3D8" title="航展门票订单查询">订单查询</a>
+      <a href="<%linkurl("register")%>">注册</a>|
+      <a href="<%linkurl("login")%>">登录</a>|       
+      <%/if%>
+        </div>
+    </div>
+    <!--title-->
+    <div class="cls_title">
+        <div class="clsmenu">
+            <ul class="clsnav">
+                <li class="first"><a href="<%linkurl("index")%>">首页</a>
+                </li>
+             
+                     <li><a target="_blank" href="<%linkurl("news_list",33)%>" title="珠海航展攻略">航展攻略</a></li>
+      <li>
+      <a target="_blank" href="<%linkurl("news_list",4)%>" title="珠海航展门票价格">航展问答</a></li>
+         <li>
+      <a target="_blank" href="<%linkurl("news_list",35)%>" title="" rel="nofllow">历届航展</a></li>
+         <li>
+ <li>
+      <a target="_blank" href="<%linkurl("changlong")%>" title="" rel="nofllow">珠海长隆</a></li>
+         <li>
+      <a target="_blank" href="http://www.qilabi.com/content/about.aspx" title="" rel="nofllow">关于我们</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>

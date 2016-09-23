@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>支付中心－{config.webname}</title>
+    <meta content="{config.webname}" name="author">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/common.css" rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/index.css" rel="stylesheet">
+    <script type="text/javascript" src="<%templateskin%>/javascript/jquery-1.8.0.min.js"></script>
+    <link media="screen" type="text/css" href="<%templateskin%>/css/changlong/main.css"
+        rel="stylesheet">
+    <script type="text/javascript" src="<%templateskin%>/javascript/base.js"></script>
+    <script type="text/javascript" src="<%templateskin%>/javascript/cart_menpiao.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            tabs('#goodsTabs', 'click');
+        });
+    </script>
+</head>
+<body>
+    <div class="narrow_page menpiao_order">
+        <div class="head_nav">
+            <!--Header-->
+            <%template src=/_header_changlong.html/%>
+            <!--/Header-->
+        </div>
+        <div class="clearfix">
+        </div>
+        <div class="clsPanle mainbody orderbody" id="mainbody">
+            <div class="clongmenpiao">
+                <ol class="progress_bar clearfix">
+                    <li class="complete"><i></i>选择产品</li>
+                    <li class="complete"><i></i>填写与核对</li>
+                    <li class="complete"><i></i>支付</li>
+                    <li><i></i>成功提交</li>
+                </ol>
+                <div class="pay_box clearfix">
+                    <div class="payinfo_price ">
+                        <p>
+                            订单金额：</p>
+                        <p>
+                            <span class="price"><dfn>¥</dfn>{model.order_amount}</span></p>
+                    </div>
+                    <div class="pay_title">
+                        <p>
+                            珠海长隆海洋王国跨年狂欢</p>
+                    </div>
+                </div>
+                <h2 class="paytitle">
+                    <strong>您还需要支付:</strong><span class="price"><dfn>¥</dfn>{model.real_amount}</span></h2>
+                <div id="goodsTabs">
+                    <div id="tab_head" class="pro-tabs nobgcolor clearfix">
+                        <ul class="clearfix">
+                            <li><a class="current" href="javascript:;">支付宝</a></li>
+                            <li><a href="javascript:;">财付通</a></li>
+                            <li><a href="javascript:;">网银支付</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab_inner clspaytype">
+                        <ul class="paylist clearfix">
+                            <li class="payitem" title="">
+                                <input type="radio" id="rbAlipay" class="radioPay" name="rbPaymentWay" value="{config.webpath}api/payment/alipay/index.aspx"
+                                    checked="checked">
+                                <label id="pay_lbl_ThirdPay_Alipay" for="rbAlipay" title="支付宝" class="more_alipay">
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab_inner clspaytype" style="display: none">
+                        <ul class="paylist clearfix">
+                            <li class="payitem" title="">
+                                <input type="radio" id="rdTenPay" class="radioPay" name="rbPaymentWay" value="{config.webpath}api/payment/tenpay/index.aspx">
+                                <label id="pay_lbl_ThirdPay_TenPay" for="rdTenPay" title="财付通" class="more_tenpay">
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab_inner clspaytype" style="display: none">
+                        <ul class="paylist clearfix">
+                            <li class="payitem" title="">
+                                <input type="radio" id="rdOnlinePay" class="radioPay" name="rbPaymentWay" value="{config.webpath}api/payment/chinabank/index.aspx">
+                                <label id="pay_lbl_ThirdPay_online" for="rdOnlinePay" title="网银在线" class="more_onlinepay">
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="paysubmit">
+                    <form id="pay_form" name="pay_form" method="post" action="{config.webpath}api/payment/alipay/index.aspx"
+                    target="_blank">
+                    <input type="hidden" id="payType" value="alipay" />
+                    <input id="pay_order_no" name="pay_order_no" type="hidden" value="{model.order_no}" />
+                    <input id="pay_order_amount" name="pay_order_amount" type="hidden" value="{model.order_amount}" />
+                    <input id="pay_user_name" name="pay_user_name" type="hidden" value="{model.accept_name}" />
+                    <input id="pay_subject" name="pay_subject" type="hidden" value="珠海长隆海洋王国门票购买_奇比拉" />
+                    <input type="submit" value="立即支付" class="btn_paysubmit" id="btnNextCommand" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--footer-->
+        <%template src=/_footer_changlong.html/%>
+        <!--/footer-->
+    </div>
+</body>
+</html>

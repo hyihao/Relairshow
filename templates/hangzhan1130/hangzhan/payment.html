@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>支付中心－{config.webname}</title>
+<link media="screen" type="text/css" href="<%templateskin%>/css/common.css" rel="stylesheet">
+<link media="screen" type="text/css" href="<%templateskin%>/css/style.css" rel="stylesheet">
+<script type="text/javascript" src="{config.webpath}scripts/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="<%templateskin%>/javascript/base.js"></script>
+</head>
+
+<body>
+<!--Header-->
+<%template src="_header.html"%>
+<!--/Header-->
+
+<div class="boxwrap">
+  <div class="cart_box">
+    <h1 class="main_tit">
+      支付中心<strong>Payment</strong>
+    </h1>
+    <%if(action=="confirm")%>
+    <!--提交支付-->
+    <form id="pay_form" name="pay_form" method="post"  action="{config.webpath}api/payment/{payModel.api_path}/index.aspx" target="_blank">
+    <input id="pay_order_no" name="pay_order_no" type="hidden" value="{order_no}" />
+    <input id="pay_order_amount" name="pay_order_amount" type="hidden" value="{order_amount}" />
+    <input id="pay_user_name" name="pay_user_name" type="hidden" value="{userModel.user_name}" />
+    <%if(order_type=="recharge")%>
+    <div class="form_box">
+      <dl>
+        <dt>订单号：</dt>
+        <dd>{order_no}</dd>
+      </dl>
+      <dl>
+        <dt>充值金额：</dt>
+        <dd>{order_amount}</dd>
+      </dl>
+      <dl>
+        <dt>支付方式：</dt>
+        <dd>{payModel.title}</dd>
+      </dl>
+      <dl>
+        <dt></dt>
+        <dd><input id="btnSubmit" name="btnSubmit" type="submit" class="btn_submit" value="确认支付" /></dd>
+      </dl>
+    </div>
+    <input id="pay_subject" name="pay_subject" type="hidden" value="账户充值" />
+    <%else if(order_type=="buygoods")%>
+    <div class="cart_step">
+      <ul>
+        <li><span>1</span>放进购物车</li>
+        <li class="item"><span>2</span>填写订单信息</li>
+        <li class="last selected"><span>3</span>支付/确定订单</li>
+      </ul>
+    </div>
+    <div class="form_box">
+       <div class="line20"></div>
+     <h3 class="bar_tit">订单信息</h3>
+      <dl>
+        <dt>订单号：</dt>
+        <dd>{order_no}</dd>
+      </dl>
+      <dl>
+        <dt>收货人姓名：</dt>
+        <dd>{orderModel.accept_name}</dd>
+      </dl>
+      <dl>
+        <dt>送货地址：</dt>
+        <dd>{orderModel.address}</dd>
+      </dl>
+      <dl>
+        <dt>手机号码：</dt>
+        <dd>{orderModel.mobile}</dd>
+      </dl>
+      <dl>
+        <dt>固定电话：</dt>
+        <dd>{orderModel.telphone}</dd>
+      </dl>
+
+      <dl>
+        <dt>备注留言：</dt>
+        <dd>{orderModel.message}</dd>
+      </dl>
+             <dl>
+        <dt>支付方式：</dt>
+        <dd>{payModel.title}</dd>
+      </dl>
+       <div class="line20"></div>
+          <table width="100%" border="0" cellspacing="0" cellpadding="5" class="ftable">
+        <tr>
+          <th width="64"></th>
+          <th align="left">商品名称</th>
+          <th width="80">销售价</th>
+          <th width="80">优惠价</th>
+          <th width="60">积分</th>
+          <th width="50">数量</th>
+           <th width="100">金额合计</th>
+      
+        </tr>
+        <%if(orderModel.order_goods!=null)%>
+        <%foreach(DTcms.Model.order_goods modelt in orderModel.order_goods)%>
+        <tr>
+          <td><a target="_blank" href="<%linkurl("goods_show",{modelt.goods_id})%>"><img src="<%=get_article_img_url(modelt.goods_id)%>" class="img" /></a></td>
+          <td align="left"><a target="_blank" href="<%linkurl("goods_show",{modelt.goods_id})%>">{modelt.goods_title}</a></td>
+          <td align="center">￥{modelt.goods_price}</td>
+          <td align="center">￥{modelt.real_price}</td>
+          <td align="center">
+            <%if(modelt.point>0)%>
+            +
+            <%/if%>
+            {modelt.point}
+          </td>
+          <td align="center">{modelt.quantity}</td>
+          <td align="center"><font color="#FF0000" size="2">￥<%=(modelt.real_price*modelt.quantity)%></font></td>
+        
+        </tr>
+        <%/foreach%>
+        <%else%>
+        <tr><td colspan="8" align="center">暂无记录</td></tr>
+        <%/if%>
+      </table>
+          <div class="line10"></div>
+      <div style="text-align:right;">
+        商品金额：<span class="red">￥{orderModel.real_amount}</span>&nbsp; &nbsp;+ &nbsp; 运费：<span class="red">￥{orderModel.express_fee}</span>&nbsp; &nbsp;<br />
+        <b>支付总金额：<span class="red">￥{orderModel.order_amount}</span></b>
+      </div>         
+       <div class="line20"></div>
+  
+    
+             <div class="line20"></div>
+             <div class="f_r clearfix">                          
+                <input id="Submit1" name="btnSubmit" type="submit" class="btn btn-success marL10"  value="确认支付" />  
+                 <a class="btn" href="javascript:history.go(-1)">返回上一页</a>                   
+            </div>
+         
+
+    </div>
+    <input id="pay_subject" name="pay_subject" type="hidden" value="购买航展门票" />
+    <%/if%>
+    </form>
+    <!--提交支付-->
+    <%/if%>
+          
+    <%if(action=="succeed")%>
+    <!--支付成功-->
+    <div class="msg_tips">
+      <div class="ico"></div>
+      <div class="msg">
+        <strong>支付成功啦！</strong>
+        <p>恭喜您，您的支付已经成功！</p>
+        <p>您可以点击这里进入<a href="<%linkurl("usercenter","index")%>">会员中心</a>查看订单状态！</p>
+        <p>如有其它问题，请立即与我们客服人员联系。</p>
+      </div>
+    </div>
+    <!--支付成功-->
+    <%/if%>
+          
+    <%if(action=="error")%>
+    <!--支付出错-->
+    <div class="msg_tips">
+      <div class="ico error"></div>
+      <div class="msg">
+        <strong>出错啦，支付失败！</strong>
+        <p>支付过程中发生意处错误！</p>
+        <p>您可以点击这里进入<a href="<%linkurl("usercenter","index")%>">会员中心</a>查看订单状态！</p>
+        <p>如您确实已经支付，请立即与我们客服人员联系。</p>
+      </div>
+    </div>
+    <!--支付出错-->
+    <%/if%>
+      
+    <%if(action=="login")%>
+    <!--用户未登录-->
+    <div class="msg_tips">
+      <div class="ico warning"></div>
+      <div class="msg">
+        <strong>对不起，请登录后再进行支付！</strong>
+        <p>您尚未登录或已经超时啦！</p>
+        <p>如果您已是会员用户，请<a href="<%linkurl("login")%>">点击这里进行登录</a>！</p>
+        <p>如果您尚未成为我们会员，请<a href="<%linkurl("register")%>">点击这里注册</a>。</p>
+      </div>
+    </div>
+    <!--用户未登录-->
+    <%/if%>
+      
+    <%if(action=="recharge")%>
+    <!--用户余额不足-->
+    <div class="msg_tips">
+      <div class="ico warning"></div>
+      <div class="msg">
+        <strong>对不起，您的余额不足本次支付！</strong>
+        <p>由于您选择的是余额支付，请确定您的余额是否足够！</p>
+        <p>如果余额不足，请<a href="<%linkurl("useramount","recharge")%>">点击这里充值</a>后再进行后续支付！</p>
+        <p>如果有任何问题，请与我们客服取得联系。</p>
+      </div>
+    </div>
+    <!--用户余额不足-->
+    <%/if%>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div class="clear"></div>
+
+<!--Footer-->
+<%template src="_footer.html"%>
+<!--/Footer-->
+</body>
+</html>

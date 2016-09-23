@@ -1,0 +1,2 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="t.aspx.cs" Inherits="DTcms.Web.UI.t" %>
+<script src="http://s23.cnzz.com/stat.php?id=1253259831&web_id=1253259831&show=pic"  language="JavaScript"></script>

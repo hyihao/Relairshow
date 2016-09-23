@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2014珠海航展门票购买:优惠票，特惠票，成人票，家庭票,团体票</title>
+    <meta content="航展优惠票，航展特惠票，航展成人票，航展家庭票，航展团体票" name="keywords">
+    <meta content="{config.webdescription}" name="description">
+    <meta content="{config.webtitle}" name="author">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/common.css"
+        rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/list.css" rel="stylesheet">
+    <script type="text/javascript" src="<%templateskin%>/javascript/jquery-1.8.0.min.js"></script>
+</head>
+<body>
+    <!--Header-->
+    <%template src=/_header.html/%>
+    <!--/Header-->
+    <div class="hzbody cls_980 overhide">
+         <h2 class="hz_itemlist_nva">
+            航展门票票种列表: <a href="<%linkurl("index")%>">2014珠海航展</a> &gt; <a href="<%linkurl("ticket")%>" target="_blank" title="航展门票订购">航展门票预订</a>
+        </h2>
+     <a href="<%linkurl("airshow")%>" title="2014珠海航展门票_奇比拉"><img src="../../images/01.jpg" alt="2014珠海航展门票_奇比拉" width="980px" /></a> 
+           <div class="blank10">
+        </div>
+        <div class="ticket_list clearfix">           
+                
+        <%set (DataTable){hztickets}=get_article_list("goods", 44, 12, "is_red=1 and img_url<>''")%>
+            <%loop hzticket hztickets%>
+            <div class="hzdeal">
+                <a title="{hzticket[title]}" href="<%linkurl("ticket_item",{hzticket[id]})%>" class="hzdeal_title_cover">
+                    <img width="314" height="192" class="J-webp" alt="{hzticket[title]}" src="{hzticket[img_url]}">
+                    <span class="hzdeal_mark"><em class="hzdeal_mark_pois" title="全国包邮">全国包邮</em> </span>
+                </a>
+                <h3 class="hzdealtitle">
+                    <a title="{hzticket[title]}" href="<%linkurl("ticket_item",{hzticket[id]})%>" class="wlink">
+                    <span class="xtitle" id="ticket_{hzticket__loop__id}">{hzticket[title]}</span>
+                        <span class="short-title" >{hzticket[seo_description]}</span>
+                    </a>
+                </h3>
+                <p class="hzprice">
+                    <span class="pricetag">￥ <strong>{hzticket[market_price]}</strong> </span><a title="{hzticket[title]}" href="<%linkurl("ticket_item",{hzticket[id]})%>">去看看</a>
+                </p>
+                <div class="hzdeal_extra" >
+                    <p class="extra_inner" >
+                        <span class="sales">已售<strong class="num">{hzticket[click]}</strong></span>
+                     <a href="#"  class="rate_info" >
+                        <span class="rate_info__bar common-rating">
+                            <span  class="rate_stars" style="width: 92%;"></span>
+                        </span>
+                        <span class="rate-info__count"  ><%=get_comment_count({strtoint({hzticket[id]})},"") %>人评价</span>
+                     </a>
+                   </p>
+                </div>
+            </div>
+             <%/loop%>        
+        </div>       
+    </div>
+
+    <div class="hzbrower">
+    <div class="hzbody">
+        <h3 class="hzbrower_title">
+                历届珠海航展一览</h3>
+    <div class="hzbrower-arrange">
+                <dl class="arrange-one">
+                    <dt>1</dt>
+                    <dd class="arran-time">
+                       <a href="http://www.qilabi.com/news/show-168.aspx">首届航展</a> </dd>
+                    <dd class="meet-name">
+                      1996年11月5日至10日</dd>
+                </dl>
+                <dl class="arrange-two">
+                    <dt>2</dt>
+                    <dd class="arran-time">
+                         <a href="http://www.qilabi.com/news/show-169.aspx">第二届中国航展 </dd>
+                    <dd class="meet-name">
+                        1998年11月15日至22日</dd>
+                </dl>
+                <dl class="arrange-three">
+                    <dt>3</dt>
+                    <dd class="arran-time">
+                       <a href="http://www.qilabi.com/news/show-170.aspx"> 第三届中国航展 </a></dd>
+                    <dd class="meet-name">
+                        2000年11 月6日-12日</dd>
+                </dl>
+                <dl class="arrange-four">
+                    <dt>4</dt>
+                    <dd class="arran-time">
+                       <a href="http://www.qilabi.com/news/show-171.aspx">   第四届中国航展</a></dd>
+                    <dd class="meet-name">
+                       2002年没有飞行表演 </dd>
+                </dl>
+                  <dl class="arrange-five">
+                    <dt>5</dt>
+                    <dd class="arran-time">
+                        <a href="http://www.qilabi.com/news/show-172.aspx">  第五届中国航展</a></dd>
+                    <dd class="meet-name">
+                       2004年10月31日至11月7日 </dd>
+                </dl>
+                     <dl class="arrange-six">
+                    <dt>6</dt>
+                    <dd class="arran-time">
+                       <a href="http://www.qilabi.com/news/show-173.aspx">   第六届中国航展</a></dd>
+                    <dd class="meet-name">
+                        2006年10月31日-11月5日</a></dd>
+                </dl>
+                     <dl class="arrange-seven">
+                    <dt>7</dt>
+                    <dd class="arran-time">
+                         <a href="http://www.qilabi.com/news/show-174.aspx"> 第七届中国航展</a></dd>
+                    <dd class="meet-name">
+                        2008年11月9日</dd>
+                </dl>
+                     <dl class="arrange-eight">
+                    <dt>8</dt>
+                    <dd class="arran-time">
+                        <a href="http://www.qilabi.com/news/show-175.aspx">  第八届中国航展</a></dd>
+                    <dd class="meet-name">
+                        2010年11月16日—21日</dd>
+                </dl>
+                     <dl class="arrange-nine">
+                    <dt>9</dt>
+                    <dd class="arran-time">
+                       <a href="http://www.qilabi.com/news/show-176.aspx" target="_blank"> 第九届中国航展</a></dd>
+                    <dd class="meet-name">
+                        2012年11月13日—18日</dd>
+                </dl>
+                     <dl class="arrange-ten">
+                    <dt>10</dt>
+                    <dd class="arran-time">
+                        &nbsp;</dd>
+                    <dd class="meet-name">
+                       &nbsp; </dd>
+                </dl>
+                  
+
+                <div class="now-arrange">
+                    <div class="now-time">
+                        第十届珠海航展</div>
+                    <div class="now-meet">
+                        2014年11月11号-16号</div>
+                    <div class="new">
+                         <a href="<%linkurl("ticket")%>" target="_blank"> 购票</a></div>
+                    <div class="arrow">
+                        &nbsp;</div>
+                </div>
+            </div>
+</div>
+
+    </div>
+    
+    <div class="clear">
+    </div>
+    <!--Footer-->
+    <%template src=/_footer.html/%>
+    <!--/Footer-->
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+    <%set (string){category_title}=get_category_title({category_id},"新闻资讯")%>
+   <title>{config.webtitle}_{category_title}</title>
+    <meta content="{config.webkeyword} - {category_title}" name="keywords">
+    <meta content="{config.webdescription}" name="description">
+    <meta content="{config.webtitle}" name="author">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/common.css" rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/list.css" rel="stylesheet">
+    <script type="text/javascript" src="<%templateskin%>/javascript/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="<%templateskin%>/javascript/base.js"></script>
+</head>
+<body>
+    <!--Header-->
+    <%template src=/_header.html/%>
+    <!--/Header-->
+    <div class="hangzhanNewsListMain cls_980">
+       <h2 class="hz_itemlist_nva">
+            2014珠海航展门票中心: <a href="<%linkurl("index")%>">2014珠海航展</a> &gt;  <a href="<%linkurl("news_list",{category_id})%>">{category_title}</a>
+        </h2>      
+        <div class="hzNewsList clearfix">
+            <div class="f_l left677">
+                <div class="newslist">
+                    <table>
+                        <!--取得一个DataTable-->
+                        <!--取得分页页码列表-->
+                        <tbody>
+                            <%set (DataTable){news_list}=get_article_list("news", category_id,  page, "status=0", out totalcount, out pagelist,"news_list", category_id, "__id__")%>
+                            <!--取得一个DataTable-->
+                            <%foreach(DataRow listdr in news_list.Rows)%>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <h2 class="newslist_title">
+                                            <a href="<%linkurl("news_show",{listdr[id]})%>">{listdr[title]}</a>
+                                        </h2>
+                                        <div class="Gcontent">
+                                            <img alt="{listdr[title]}" src="{listdr[img_url]}" border="0" width="0" height="0"
+                                                onload="autoResizeImage(120,0,this)">
+                                            {listdr[zhaiyao]}<a href="<%linkurl("news_show",{listdr[id]})%>">阅读全文</a></div>
+                                        <div class="Gnewstime">
+                                            <span class="time">发布时间：{listdr[add_time]}&nbsp;&nbsp;&nbsp;</span> <span class="comm">
+                                              <script type="text/javascript" src="{config.webpath}tools/submit_ajax.ashx?action=view_comment_count&id={listdr[id]}"></script>
+                                              人评论</span>
+                                            <span class="view">浏览： <script type="text/javascript" src="{config.webpath}tools/submit_ajax.ashx?action=view_article_click&id={listdr[id]}"></script></span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <%/loop%>
+                        </tbody>
+                    </table>
+                    <div class="blank10">
+                    </div>
+                    <div class="flickr">
+                        {pagelist}</div>
+                    <div class="blank10">
+                    </div>
+                </div>
+            </div>
+            <div class="f_r left300">
+                <div class="side ">
+                    <h3 class="side_title side_title1">
+                        珠海航展酒店预订<span class="triangle trianglen1"></span></h3>
+                 <iframe height="780" width="268" border="0"  frameborder="0" scrolling="no" style="border:none"  src="http://u.ctrip.com/union/Code/HotelCityListBox.aspx?logo=0&orderby=&cityID=31&AllianceID=3911&sid=295913&height=&width=268&counts=30&ouid=&app=0105A02" id="preview"></iframe> 
+                    <h3 class="side_title side_title1">
+                        珠海航展热点文章<span class="triangle trianglen1"></span></h3>
+                    <ul class="ul_hot_news">
+                        <%set (DataTable){hotnews}=get_article_list("news", 0, 5, "status=0", "click desc,id desc")%>
+                        <%loop newsdr11 hotnews%>
+
+                        <li class="f-cb">
+                            <div class="u-num-con">
+                                <h4>
+                                    <a href="<%linkurl("news_show",{newsdr11[id]})%>" target="_blank">{newsdr11[title]}</a></h4>
+                                <div class="u-num">
+                                    <em class="n{newsdr11__loop__id}">{newsdr11__loop__id}</em></div>
+                                <div class="u-img">
+                                    <a href="<%linkurl("news_show",{newsdr11[id]})%>" target="_blank">
+                                        <img class="img80-60" width="80" height="60" src="{newsdr11[img_url]}" alt="{newsdr11[title]}"></a></div>
+                                <div class="txt">
+                                    <p>
+                                        <a href="<%linkurl("news_show",{newsdr11[id]})%>" target="_blank">{newsdr11[zhaiyao]}</a></p>
+                                </div>
+                            </div>
+                        </li>
+                        <%/loop%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Header-->
+    <%template src=/_footer.html/%>
+    <!--/Header-->
+</body>
+</html>

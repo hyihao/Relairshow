@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2014珠海航展门票:珠海航展门票购票仅需3步</title>
+    <meta content="珠海航展门票,2014珠海航展,珠海航展，航展门票" name="keywords">
+    <meta content="珠海航展门票购买仅需简单3步，选择航展门票，提交订单，购买成功，快递航展门票到手" name="description">
+    <meta content="{config.webtitle}" name="author">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/common.css" rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/index.css" rel="stylesheet">   
+    <link media="screen" type="text/css" href="<%templateskin%>/css/style.css" rel="stylesheet">   
+    <script type="text/javascript" src="{config.webpath}scripts/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{config.webpath}scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>
+<script type="text/javascript" src="<%templateskin%>/javascript/base.js"></script>
+<script type="text/javascript" src="<%templateskin%>/javascript/cart.js"></script>
+</head>
+<body>
+    <!--Header-->
+    <%template src=/_header.html/%>
+    <!--/Header-->
+    <div class="hzbody cls_980 overhide">
+        <h2 class="hz_itemlist_nva">
+            珠海航展门票中心: <a href="/index.aspx">珠海航展</a> &gt; <a href="/airshow.aspx" target="_blank"
+                title="航展门票">航展门票</a>&gt; <a href='<%linkurl("airshoworders"%>'> 珠海航展门票在线订购</a>
+        </h2>
+       
+        <div class=" hangzhantipnotop">
+            <div class="hangzhanbj_tips">
+                <h4 class="airshow_tips" title="珠海航展门票温馨提示">
+                    珠海航展门票在线订购 <span>Buy</span>
+                </h4>
+            </div>
+               <div class="blank10">
+        </div>
+            <a href="<%linkurl("airshow")%>" title="2014珠海航展门票_奇比拉"><img src="../../images/01.jpg" alt="2014珠海航展门票_奇比拉" width="960px" /></a> 
+               <div class="blank10">
+        </div>
+            <ul class="ul_tips clearfix">
+                <li>奇比拉航展门票为珠海航展官方合作伙伴，在<a href="http://gzdaily.dayoo.com/html/2014-10/21/content_2778790.htm"
+                    rel="nofollow" target="_blank">广州日报头版</a> 、<a href="http://news.ifeng.com/a/20141021/42252802_0.shtml"
+                        rel="nofollow" target="_blank">凤凰网</a>、<a href="http://www.airshow.com.cn/cn/ptgz/GenAudience/201409/19963.html#footer"
+                            rel="nofollow" target="_blank"> 珠海航展公司官网</a>、南方都市报等其他主流媒体均相应有报道。可放心购买。</li>               
+            </ul>
+            
+        </div>
+        <div class="blank10">
+        </div>
+        <div class="ticket_bd clearfix airshowMain">
+            <h3>
+                航展门票购买仅需3步骤</h3>
+            <ol class="buy-process-bar steps-bar">
+                <li class="step step--first step--current" style="z-index: 2; color: #fff;"><span
+                    class="step__num">1.</span> 选择门票 <span class="arrow__background"></span><span class="arrow__foreground">
+                    </span></li>
+                <li class="step " style="z-index: 1"><span class="step__num">2.</span> 填写订单 <span
+                    class="arrow__background"></span><span class="arrow__foreground"></span></li>
+                <li class="step step--last "><span class="step__num">3.</span> 购买成功 </li>
+            </ol>
+
+            <table width="928" border="0" align="center" cellpadding="8" cellspacing="0" class="cart_table">
+      <tr>
+        <th width="64"></th>
+        <th align="left">商品名称</th>       
+        <th width="100" align="center">单价</th>
+        <th width="120" align="center">数量</th>       
+        <th width="100" align="center">金额小计</th>        
+      </tr>
+       <%set (DataTable){hztickets}=get_article_list("goods", 44, 12, "is_red=1 and img_url<>''")%>
+            <%loop modelt hztickets%>
+     
+      <tr>
+        <td><a target="_blank" href="<%linkurl("ticket_item",{modelt[id]})%>"><img src="{modelt[img_url]}"  class="img" /></a></td>
+        <td><a target="_blank" href="<%linkurl("ticket_item",{modelt[id]})%>">{modelt[title]}</a></td>
+        
+        <td align="center">￥ <lable class="sell_price" name="sell_price">{modelt[sell_price]}</lable></td>
+        <td align="center">
+         <a href="javascript:;" class="reduce" title="减一" onclick="CartAddMinus(this, '{config.webpath}', '{modelt[id]}', -1);">减一</a>
+          <input type="text" name="goods_quantity" id="goods_quantity_{modelt[id]}" class="input" style="width:30px;text-align:center;ime-mode:Disabled;" value="0" onblur="TotalCartAmount(this, '{config.webpath}', '{modelt[id]}');" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" />
+          <a href="javascript:;" class="subjoin" title="加一" onclick="CartAddMinus(this,'{config.webpath}', '{modelt[id]}', 1);">加一</a>
+        </td>
+       
+        <td align="center"><font color="#FF0000" size="2">￥<label name="real_amount" class="real_amount">0</label></font></td>       
+ 
+      </tr>
+         <%/loop%>        
+      <tr id="total_amount">
+        <th colspan="9" align="right">
+          商品总金额（不含运费）：<font color="#FF0000" size="2" >￥<lable class="total_amount" name="total_amount" class="total_amount">0</lable></font>元 &nbsp;&nbsp;
+        </th>
+      </tr>
+      
+	</table>
+     <div class="line20"></div>
+      <div class="right">
+      
+      <a class="btn btn-success marL10" href="<%linkurl("shopping","confirm")%>">马上去结算</a>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var goods_id = '{m_t}';
+            if (goods_id) {
+                $('#goods_quantity_' + goods_id).val(1);
+                $.ajax({
+                    type: "post",
+                    url: '{config.webpath}' + "tools/submit_ajax.ashx?action=cart_menpiao_update",
+                    data: {
+                        "goods_id": goods_id,
+                        "goods_quantity": 1
+                    },
+                    dataType: "json",
+                    beforeSend: function (XMLHttpRequest) {
+                        //发送前动作
+                    },
+                    success: function (data, textStatus) {
+                        if (data.status == 1) {
+                            
+                            updateForm($('#goods_quantity_' + goods_id));
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("状态：" + textStatus + "；出错提示：" + errorThrown);
+                    },
+                    timeout: 20000
+                });
+                return false;
+            }
+        });
+
+      
+    </script>
+    </div>
+    <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <!--Footer-->
+    <%template src=/_footer.html/%>
+    <!--/Footer-->
+</body>
+</html>

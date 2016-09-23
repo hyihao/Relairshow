@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>订单查询－{config.webname}</title>
+<meta content="珠海航展售票网点门票查询" name="keywords" />
+<meta content="珠海航展售票网点门票订单查询" name="description" />
+<link media="screen" type="text/css" href="<%templateskin%>/css/usercenter.css" rel="stylesheet">
+<script type="text/javascript" src="{config.webpath}scripts/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{config.webpath}scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>
+<script type="text/javascript" src="<%templateskin%>/javascript/queryorder.js"></script>
+</head>
+<body>
+    <!--Header-->
+    <%template src=/_header.html/%>
+    <!--/Header-->
+
+    <div class="boxwrap">
+  <div class="cart_box">
+    <h1 class="main_tit">
+      订单查询<strong>Query</strong>
+    </h1>
+<div class="tool_bar">
+  <form id="queryorderform" name="queryorderform" url="{config.webpath}tools/submit_ajax.ashx?action=query_order">
+    <span>手机号：</span> <input name="txtPhone" type="text" class="input txt" maxlength="50" id="txtPhone"> 
+     <em>或</em> <soan>订单号：</soan><input name="txtOrder" type="text" class="input txt"  id="txtOrder" > 
+      <input id="btnSubmit" name="btnSubmit" type="submit" class="btn" value="查 询" />
+      <span id="msgtips"></span>
+      </form>
+</div>
+    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ftable" id="queryTable">
+      <tr>
+        <th width="16%" align="left">订单号</th>       
+        <th width="10%">收货人</th>
+        <th width="12%">订单金额</th>
+        <th width="11%">下单时间</th>
+        <th width="10%">订单状态</th>
+        <th width="12%">操作</th>
+      </tr>
+      
+      <tr id="querytr"><td colspan="8" align="center">暂无记录</td></tr>
+      
+    </table>
+    
+    
+
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div class="clear"></div>
+
+
+      <!--Header-->
+    <%template src=/_footer.html/%>
+    <!--/Header-->
+
+</body>
+</html>

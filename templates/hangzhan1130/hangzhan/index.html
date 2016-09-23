@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
+    <title>{config.webtitle}</title>
+    <meta content="{config.webkeyword}" name="keywords">
+    <meta content="{config.webdescription}" name="description">
+    <meta content="{config.webtitle}" name="author">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/common.css"
+        rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/index.css" rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="<%templateskin%>/javascript/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="<%templateskin%>/javascript/scrollTop.js"></script>
+    <script type="text/javascript" src="<%templateskin%>/javascript/layer/layer.min.js"></script>
+    <script type="text/javascript" src="<%templateskin%>/javascript/base.js"></script>
+       <script type="text/javascript" src="<%templateskin%>/javascript/nicescroll.js"></script>
+        <script type="text/javascript" src="{config.webpath}scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>
+
+</head>
+<body>
+    <!--Header-->
+    <%template src=/_header.html/%>
+    <!--/Header-->
+   
+    <div class="hzbody">
+       <div class="hztop">
+            <%set (DataTable){ad_link}=GetTopAdLinkList(4,1)%>
+            <div class="hzt_left" id="hangzhan">
+                <div id="hangzhan_pic">
+                    <div id="hangzhan_piclist" style="left: 0; top: 0;">
+                        <ul>
+                            <%loop adlink ad_link%>
+                            <li id="playBig{adlink__loop__id}"><a href="{adlink[site_url]}" target="_blank">
+                                <img src="{config.weburl}{adlink[img_url]}" alt="{adlink[adName]}"></a></li>
+                            <%/loop%>
+                        </ul>
+                    </div>
+                    <div id="hangzhan_opdiv">
+                    </div>
+                    <div id="hangzhan_tx">
+                        <ul>
+                            <%loop adlink1 ad_link%>
+                            <li id="playIntro{adlink1__loop__id}" class="<%if {adlink1__loop__id}==1%>current<%else%> normal<%/if%>">
+                                <h1>
+                                    <a href="{adlink1[site_url]}" target="_blank">{adlink1[adName]}</a></h1>
+                            </li>
+                            <%/loop%>
+                        </ul>
+                    </div>
+                </div>
+                <div id="hangzhan_btn">
+                    <ul>
+                        <%loop adlink2 ad_link%>
+                        <li id="playSmall{adlink2__loop__id}" class="<%if {adlink2__loop__id}==1%>current<%else%> normal <%/if%>">
+                            <a href="{adlink2[site_url]}">
+                                <img src="{config.weburl}{adlink2[img_url]}" alt="{adlink2[adName]}"></a> </li>
+                        <%/loop%>
+                    </ul>
+                </div>
+            </div>
+            <div class="hzt_right" id="hzt_right">
+              <h3 class="hotele">
+                珠海航展指南 <a href="<%linkurl("news_list",4)%>" title="珠海航展指南"><i class="adisplay">珠海航展时间</i></a>
+            </h3>
+            <ul class="hznav">
+                <%set (DataTable){zhinans}=get_article_list("news", 4, 10, "status=0")%>
+                <%loop zhinan zhinans%>
+                <li><a href="<%linkurl("news_show",{zhinan[id]})%>" <%if {zhinan[is_red]}=="1"%>style="color:red"<%/if %> >{zhinan[title]}</a></li>
+                <%/loop%>
+            </ul>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <div class="meze">
+        <div class="hzleft">
+            <div class="meft">
+                <div class="menu_fk">
+                    <div class="cls_munu_t">
+                        <h2>
+                            珠海航展抢先看</h2>
+                        <a href="<%linkurl("news_list",1)%>" title="珠海航展抢先"><i class="adisplay">2014航展,航展资讯</i></a>
+                    </div>
+                    <%set (DataTable){rednews}=get_article_list("news", 1, 3, "status=0")%>
+                    <%loop newsdr11 rednews%>
+                    <div class="menu_fkc">
+                        <img alt="{newsdr11[title]}" src="{newsdr11[img_url]}" width="153" height="100">
+                        <ul class="clearfix">
+                            <li class="height20"><a class="width153" href="<%linkurl("news_show",{newsdr11[id]})%>">
+                                {newsdr11[title]}</a></li>
+                            <li class="height100">{newsdr11[zhaiyao]}</li>
+                        </ul>
+                        <h4 class="hmore">
+                            <a class="fkc_more " href="<%linkurl("news_show",{newsdr11[id]})%>">READ MORE</a></h4>
+                    </div>
+                    <%/loop%>
+                </div>
+                <div class="menu_fk">
+                    <div class="cls_munu_t">
+                        <h2>
+                            珠海航展Focus</h2>
+                        <a href="<%linkurl("news_list",3)%>" title="珠海航展回顾"><i class="adisplay">航展回顾，第九届航展</i></a>
+                    </div>
+                    <%set (DataTable){focusnews}=get_article_list("news", 3, 4, "status=0")%>
+                    <%loop focusnew focusnews%>
+                    <div class="menu_fkc4">
+                        <ul class="clearfix">
+                            <li class="focustitle"><a href="<%linkurl("news_show",{focusnew[id]})%>">{focusnew[title]}</a></li>
+                            <li class="height40 focuscont">{focusnew[zhaiyao]}</li>
+                        </ul>
+                        <div class="fkc4_more">
+                            <span class="f_r">{focusnew[add_time]}</span> <span><a href="<%linkurl("news_show",{focusnew[id]})%>">
+                                [阅读全文]</a></span></div>
+                    </div>
+                    <%/loop%>
+                </div>
+                <div class="menu_fk">
+                    <div class="cls_munu_t">
+                        <h2>
+                            珠海航展攻略</h2>
+                        <a href="<%linkurl("news_list",33)%>" title="航展自由行"><i class="adisplay">2014航展攻略,第9届航展</i></a>
+                    </div>
+                    <%set (DataTable){gonglvs}=get_article_list("news", 33, 4, "status=0")%>
+                    <%loop gonglv gonglvs%>
+                    <div class="menu_fkc4">
+                        <ul>
+                            <li class="focustitle"><a href="<%linkurl("news_show",{gonglv[id]})%>">{gonglv[title]}</a></li>
+                            <li class="height40 focuscont">{gonglv[zhaiyao]}</li>
+                        </ul>
+                        <div class="fkc4_more">
+                            by <span>{gonglv[author]}</span> | {gonglv[add_time]}</div>
+                    </div>
+                    <%/loop%>
+                </div>
+                <div class="menu_fk">
+                    <div class="cls_munu_t">
+                        <h2>
+                            珠海航展精彩图片</h2>
+                        <a href="#" title="航展自由行"><i class="adisplay">2014航展攻略,第10届航展</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mecn">
+                <div class="menu_ck" id="voide">
+                   
+                    <a href="<%linkurl("ticket")%>" title="珠海航展购买"><i class="adisplay">2014航展</i></a>
+                      <h3 class="hotele" >
+                航展表演视频</h3>
+            <%set (DataTable){shipings}=get_article_list("news", 41, 13, "status=0","sort_id desc")%>
+                <%loop shiping shipings%>
+                <dl class="hzt_r_dl">
+                    <dt mth="{shiping[zhaiyao]}" tth="{shiping[title]}">
+                        <img src="{shiping[img_url]}"></dt>
+                    <dd>
+                        <h2>
+                            {shiping[seo_title]}
+                        </h2>
+                        <span class="hzt_r_span">{shiping[title]}</span>
+                    </dd>
+                </dl>
+                <%/loop%>
+                 
+
+                </div>
+            </div>
+            <div class="hzt_imgmain clearfix">
+                <div class="hzt_leftimg">
+                    <%set (DataTable){redphoto}=get_article_list("photo", 0, 9, "status=0 ")%>
+                    <%loop photodr1 redphoto%>
+                    <div class="hzimgitem">
+                        <a target="_blank" href="<%linkurl("photo_show",{photodr1[id]})%>" title="{photodr1[title]}"
+                            class="spic_1">
+                            <img width="275" height="245" src="{photodr1[img_url]}">
+                            <span class="unmissable-desc"><span class="ititle">{photodr1[title]}</span>{photodr1[zhaiyao]}
+                            </span></a>
+                    </div>
+                    <%/loop%>
+                </div>
+            </div>
+        </div>
+        <div class="merg">
+           
+          
+
+           
+            <div class="menu_rk">
+                <p>
+                    <span>航展门票最新评论</span>
+                </p>
+                <div class="menu_rkc">
+                    <dl>
+                        <dt><span class="dd_img dd_img_m"></span><span class="f_l">谭***</span> <span class="f_r">
+                            2014年11月05日</span></dt>
+                        <dd>
+                          珠海航展门票很精美，客服很热情~</dd>
+                    </dl>
+                </div>
+                <div class="menu_rkc">
+                    <dl>
+                        <dt><span class="dd_img dd_img_m"></span><span class="f_l">姚*** </span><span class="f_r">
+                            2014年11月05日</span></dt>
+                        <dd>
+                           预定了御温泉酒店.到时看完航展泡温泉去~服务很好</dd>
+                    </dl>
+                </div>
+                <div class="menu_rkc">
+                    <dl>
+                        <dt><span class="dd_img dd_img_w"></span><span class="f_l">李*** </span><span class="f_r">
+                             2014年11月05日</span></dt>
+                        <dd>
+                            帮同事买的航展家庭票，居然不会上网....囧</dd>
+                    </dl>
+                </div>
+                <div class="menu_rkc">
+                    <dl>
+                        <dt><span class="dd_img dd_img_m"></span><span class="f_l">郑*** </span><span class="f_r">
+                             2014年11月05日</span> </dt>
+                        <dd>
+                            本来之前还犹豫到底去不去，看了网站第二个视频一下子搞的我热血沸腾，果断搞张个人票，歼十表演很精彩。第二次去珠海了，北京来一趟不容易，希望在情侣路还能艳遇。</dd>
+                    </dl>
+                </div>
+                <div class="menu_rkc">
+                    <dl>
+                        <dt><span class="dd_img dd_img_m"></span><span class="f_l">许***</span> <span class="f_r">
+                             2014年11月05日</span></dt>
+                        <dd>
+                            2010年就想看了?可惜那时候出国了,现在得手2张带老婆一起看，我的航展不是梦，咩哈哈~</dd>
+                    </dl>
+                </div>
+                <div class="menu_rkc">
+                    <dl>
+                        <dt><span class="dd_img dd_img_m"></span><span class="f_l">甘*** </span><span class="f_r">
+                            2014年11月05日</span></dt>
+                        <dd>
+                            小学的时候梦想当名飞行员，到了工作了还没去看过航展，这次去定了。</dd>
+                    </dl>
+                </div>
+                <div class="menu_rkc">
+                    <dl>
+                        <dt><span class="dd_img dd_img_m"></span><span class="f_l">钟***</span> <span class="f_r">
+                            2014年11月05日</span></dt>
+                        <dd>
+                            下了2张航展优惠票门票，打算跟女朋友一起去看，2014要来了赶紧把钱花了。票收到了</dd>
+                    </dl>
+                </div>
+                <div class="menu_rkc">
+                    <dl>
+                        <dt><span class="dd_img dd_img_m"></span><span class="f_l">黄*** </span><span class="f_r">
+                             2014年11月05日</span></dt>
+                        <dd>
+                            票搞下来了，这下可以睡个安稳觉了。快递很快，我以为要等到明天，结果今天下午送到了。</dd>
+                    </dl>
+                </div>
+                <div class="menu_rkc">
+                    <dl>
+                        <dt><span class="dd_img dd_img_m"></span><span class="f_l">赵*** </span><span class="f_r">
+                          2014年11月05日</span></dt>
+                        <dd>
+                            力挺珠海航展，前排插入，票到手了，很精美</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="menu_rk">
+                <p>
+                    <span>航展酒店提前订</span>
+                </p>
+            </div>
+            <a href="http://u.ctrip.com/union/redirect.aspx?jt=FD4E829224DE83432EEB0A90145715A1&amp;acct=0657B5E62F353FB657F5CBF4E3FFEAE33D359C13CF8AB0C328959A40CDA4B7A22DC8C0E1F6B841CC&amp;ouid="
+                target="_blank">
+                <img src="http://pages.ctrip.com/web alliance/ads on b2b/aug-ctrip/300-250.jpg" border="0"></a>
+        </div>
+    </div>
+    <!--Header-->
+    <%template src=/_footer.html/%>
+    <!--/Header-->
+    <script type="text/javascript">
+        $(function () {
+            $("#voide dl dt").each(function (a, b) {
+                $(b).click(function () {
+                    $("#shichengvideo").html('<embed src="' + $(b).attr("mth") + '" isAutoPlay="true"  allowFullScreen="true" quality="high" width="1000" height="526" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>');
+                    var i = $.layer({
+                        type: 1,
+                        title: [$(b).attr("tth"), true],
+                        fix: false,
+                        offset: ['50px', ''],
+                        area: ['1000px', '560px'],
+                        page: { dom: '#shichengvideo' }
+                    });
+                });
+            });
+            setTimeout("doatim()", "10000");
+        })
+
+        function doatim() {
+            var ww = $(window).width();
+            var wh = $(window).height();
+            $("#imga").show().animate({ top: "0px", left: ww / 2 }, 5000)
+                      .animate({ top: wh / 3, left: ww }, 5000).css("optcity", "0.9")
+                      .animate({ top: ww, left: wh / 4 }, 5000).css("optcity", "0.3")
+                       .animate({ top: wh / 2, left: ww / 2 }, 5000).css("optcity", "0.8")
+                      .fadeOut("slow");
+        }
+
+    </script>
+    <div id="shichengvideo">
+    </div>
+  <!--  <div class="logonwarp clearfix">
+        <div class="infro">
+            <div id="nor_login" style="display: block">
+                <p class="title">
+                    登录奇比拉</p>
+                <div class="username" id="username_div">
+                    <span></span>
+                    <input type="text" name="txtUsername" id="txtUsername" value="" utype="" maxlength="40"
+                        autocomplete="off" title="请输入用户名" onfocus="focus_username()" errordata="0" onkeyup="return txtPassword_keyDown(event,this);"
+                        tabindex="1">
+                    <label id="userReplacer" class="pwdReplace" style="display: block;" for="txtUsername">
+                        邮箱/昵称/手机号码</label></div>
+                <p class="tips winerror02" id="user_mindstyle">
+                    <span id="liDivErrorMessage" style="display: none;">请输入邮箱地址/昵称/手机号码</span>
+                </p>
+            </div>
+            <div class="password" id="password_div">
+                <span></span>
+                <input class="pass" type="password" id="txtPassword" name="txtPassword" title="请输入密码"
+                    maxlength="20" autocomplete="off" onkeyup="return txtPassword_keyDown(event,this)"
+                    errordata="0" onfocus="focus_pass()" tabindex="2"><label id="pwdReplacer"
+                        class="pwdReplace" style="display: block;" for="txtPassword">密码</label></div>
+            <p class="tips" id="pass_mindstyle">
+                <span id="login_password_error" style="display: none">请填写长度为6-20个字符密码</span> 
+            </p>
+            <div class="code_wrap" id="inputcode" style="display: none">
+                <div class="code" id="vcode_model">
+                    <span></span>
+                    <input type="text" name="txtVerifyCode" id="txtVerifyCode" title="请输入验证码" maxlength="4"
+                        onkeyup="return txtPassword_keyDown(event,this)" errordata="0" autocomplete="off"
+                        tabindex="3"><label id="codeReplacer" class="pwdReplace" style="display: block;"
+                            for="txtVerifyCode">验证码</label></div>
+                <a href="javascript:show_vcode('imgVcode');" class="code_pic" tabindex="4">
+                    <img id="imgVcode"></a><a href="javascript:show_vcode('imgVcode');" style="line-height: 30px;"
+                        tabindex="5">换张图</a>
+            </div>
+            <p class="tips_code" id="vcode_mindstyle" style="display: none;">
+                <span id="login_vcode_error" style="display: none">请填写图片中的字符，不区分大小写</span></p>
+            <p class="auto_login">
+                <a href="lostpassword.php" tabindex="7">忘记密码？</a><input type="checkbox" id="autologin"
+                    name="autologin" class="auto_box" onfocus="this.blur();"><input type="hidden" id="ispersist"
+                        name="ispersist" value="off"><span style="">七天内自动登录</span><span class="safe" style="display: none;">请勿在公用电脑上勾选此选项</span></p>
+            <p class="button">
+                <a href="javascript:void(0);" onclick="javascript:sign_check_and_submit();" tabindex="6">
+                    登&nbsp;&nbsp;&nbsp;&nbsp;录</a></p>
+            <p class="register" id="immedate_register" style="display: block">
+                <a href="register.php?returnurl=http://shopadm4.dangdang.com/shop_preview/store.php?sid=6078&amp;act=subject&amp;pid=26306"
+                    class="register_btn">立即注册</a><span>还不是当当用户？</span></p>
+            <p class="register" id="change_other" style="display: none">
+                <a id="other_login" class="other">使用其他账号登录</a><a href="register.php?returnurl=http://shopadm4.dangdang.com/shop_preview/store.php?sid=6078&amp;act=subject&amp;pid=26306"
+                    class="register_btn">立即注册</a><span>还不是奇比拉用户？</span></p>
+            <div class="login_btn" id="submit_signin_div">
+                <input type="hidden" id="post_type" name="post_type" value="normal">
+                <input type="hidden" id="login_type" name="login_type" value="0">
+                <input type="hidden" name="action" id="action" value="login">
+                <input type="hidden" name="view" id="view" value="CYWaGr0EQG4=">
+                <input type="hidden" id="A12B56CD78EF90G" name="A12B56CD78EF90G" value="GHaKqXh2S/l7zZ0rJBXoJA==">
+                <input type="hidden" id="wdvalidatetoken" name="wdvalidatetoken" value="B44fn4FUfC3vXCcQbJFJtFGlDH/eUTku410TabvCd6ukwy7VqkfPcg==">
+                <input type="hidden" id="auth_human_id" name="auth_human_id" value="lw7nwcCFeWt8hYrzfpMiIj4cCcFdgphgsAyWbdOtoyBJdiIXGMYH+rvc1E1zIw3A0BsQQAQk07yKaFlaEI8ucoe4Cd8YSPlJemavgN4ywW7TrxbNsAAI1fBoHoXcrnvi">
+                <input type="hidden" name="returnurl" id="returnurl" value="http://shopadm4.dangdang.com/shop_preview/store.php?sid=6078&amp;act=subject&amp;pid=26306">
+                <input type="submit" id="btnSign" style="display: none;">
+            </div>
+            <div class="partner clearfix" id="share_login" style="display: block; margin-top: 54px">
+                <p>
+                    使用合作网站登录奇比拉</p>
+                <ul>
+                    <li><a href="https://login.dangdang.com/login_third_alipay/login_alipay.aspx?returnurl=http://shopadm4.dangdang.com/shop_preview/store.php?sid=6078&amp;act=subject&amp;pid=26306"
+                        title="支付宝">支付宝</a></li>
+                    <li><a href="javascript:toQzoneLogin();" title="QQ">ＱＱ</a></li>
+                    <li><a href="javascript:openWind();" title="新浪微博" id="open_sina_sign">新浪微博</a></li>
+                    <li><a href="javascript:openWind_netease()" title="网易">网易</a></li>
+                    <li><a href="javascript:openWind_renren();" title="人人网">人人网</a></li>
+                    <li class="mr0"><a href="javascript:openWind_baidu()" title="百度">百度</a></li>
+                    <li><a href="javascript:openWind_msn()" title="MSN">ＭＳＮ</a></li>
+                    <li><a href="javascript:openWind_fetion()" title="飞信">飞信</a></li>
+                    <li><a href="https://login.dangdang.com/login_third_jsmobile/login_jsmobile.aspx?returnurl=http://shopadm4.dangdang.com/shop_preview/store.php?sid=6078&amp;act=subject&amp;pid=26306"
+                        title="江苏移动">江苏移动</a></li>
+                    <li><a href="javascript:openWind_douban()" title="豆瓣">豆瓣</a></li>
+                    <li><a href="javascript:openWind_qh360()" title="360">３６０</a></li>
+                    <li class="mr0"><a href="javascript:openWind_souhu()" title="搜狐">搜狐</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        var errorcode = "";
+        jQuery(document).ready(function () {
+            jQuery("#txtUsername").focus(function () { focus_username() });
+            jQuery("body").click(function () { check_password_change() });
+            jQuery("#txtPassword").change(function () { focus_pass_change() });
+            jQuery("#txtUsername").blur(function () { blur_username(); focus_user_change() });
+            jQuery("#txtPassword").blur(function () { blur_password(); focus_pass_change() });
+            jQuery("#txtPassword").focus(function () { focus_pass() });
+            if (jQuery('#txtUsername').val() != "") {
+                jQuery("#userReplacer").css("display", "none");
+                if (errorcode == 0) {
+                    jQuery('#txtPassword').focus();
+                }
+            } else {
+                jQuery('#txtUsername').focus();
+            }
+
+            jQuery("#txtPassword").keypress(function (e) {
+                var c = e.keyCode || e.which;
+                var s = e.shiftKey;
+                if (((c >= 65 && c <= 90) && !s) || ((c >= 97 && c <= 122) && s)) {
+                    jQuery("#pass_mindstyle").addClass("winerror");
+                    jQuery("#password_div").removeClass('focus').addClass('error');
+                    jQuery('#login_password_error').css("display", "none");
+                    //jQuery("#casplockopen").show();
+                    layer.tips('<b>大写锁定被打开</b>大写锁定可能会造成密码输入错误，可通过按CapsLock键盘将其关闭。', this, {
+                        guide: 2,
+                        maxWidth: 240,
+                        time: 5,
+                        closeBtn: [0, true]
+                    });
+                    return true;
+                }
+                if (c != 13) {
+                    jQuery('#password_div').removeClass("error").addClass("focus");
+                    jQuery('#login_password_error').css("display", "block"); ;
+                    jQuery("#pass_mindstyle").removeClass("winerror");
+                    ;
+                }
+                return true;
+            });
+        });
+    
+        
+    </script>-->
+    <div class="clear">
+    </div>
+    <img src="http://www.qibila.com/imgs/jnstyle.gif" style="position: fixed;right: 0;top: 40%; z-index:999;display:none"  id="imga" title="万圣节快乐" alt="中国（珠海）航展"/>
+</body>
+</html>

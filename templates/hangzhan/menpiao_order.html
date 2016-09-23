@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <%set (string){category_title}=get_category_title({model.category_id},"门票订单")%>
+    <title>{model.title} - {category_title} - {config.webname}</title>
+    <meta content="{model.seo_keywords}" name="keywords">
+    <meta content="{model.seo_description}" name="description">
+    <meta content="{config.webname}" name="author">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/common.css" rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/index.css" rel="stylesheet">
+    <script type="text/javascript" src="<%templateskin%>/javascript/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="{config.webpath}scripts/json.js"></script>
+    <script type="text/javascript" src="{config.webpath}scripts/datepicker/WdatePicker.js"></script>
+    <link media="screen" type="text/css" href="<%templateskin%>/css/changlong/main.css"
+        rel="stylesheet">
+    <script type="text/javascript" src="<%templateskin%>/javascript/cart_menpiao.js"></script>
+        <script type="text/javascript" src="{config.webpath}scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>
+</head>
+<body>
+    <div class="narrow_page menpiao_order">
+        <div class="head_nav">
+              <!--Header-->
+    <%template src=/_header_changlong.html/%>
+    <!--/Header-->
+        </div>
+        <div class="clearfix">
+        </div>
+        <div class="clsPanle mainbody orderbody" id="mainbody">
+            <div class="clongmenpiao">
+                <ol class="progress_bar">
+                    <li class="complete"><i></i>选择产品</li>
+                    <li class="complete"><i></i>填写与核对</li>
+                    <li><i></i>支付</li>
+                    <li><i></i>成功提交</li>
+                </ol>
+                <div class="box_tit">
+                    <h1 class="tit clearfix">
+                        <em class="icon"></em><em class="txt">广东珠海横琴长隆海洋王国景区门票</em> <span class="base_price f_r"
+                            style="margin-right: 10px"><strong>总价：</strong> <dfn>¥</dfn><strong id="Strong1">0</strong></span>
+                    </h1>
+                </div>
+                <div class="line10">
+                </div>
+                <div class="top_warn">
+                    <i>&nbsp;</i> <em>预订限制</em> <span>请在游玩 前1天 的17：00 前完成预订</span>
+                </div>
+                <form id="menpiaoorderform" name="menpiaoorderform" url="{config.webpath}tools/submit_ajax.ashx?action=menpiao_order">
+                <table class="ticket_item_inner clearfix">
+                    <thead>
+                        <tr>
+                            <td style="padding-left: 26px;">
+                                名称
+                            </td>
+                            <td width="110px">
+                                门市价
+                            </td>
+                            <td width="130px">
+                                优惠价
+                            </td>
+                            <td width="150px">
+                                选择使用时间
+                            </td>
+                            <td width="120px" align="center">
+                                数量
+                            </td>
+                            <td width="110px">
+                                单项总额
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover_bg">
+                            <td class="ticket_item_title" id='{model.id}'>
+                                <h3>
+                                    <a href="javascript:void(0)">{model.title}</a>
+                                </h3>
+                            </td>
+                            <td class="ticket_item_yprice strike">
+                                <span class="del"><dfn>¥</dfn><strong>{model.fields[market_price]}</strong></span>
+                            </td>
+                            <td class="ticket_item_sellprice">
+                                <span class="base_price"><dfn>¥</dfn><strong>{model.fields[sell_price]}</strong></span>
+                            </td>
+                            <td class="ticket_item_usedate">
+                                <%if({model.seo_description}=="15")%>
+                                <input type="text" class="Wdate" data-params='{model.id}' onfocus="WdatePicker({onpicking:cartTotalAmount(this, {model.id}),minDate:'%y-%M-{ %d+1 }',maxDate:'%y-%M-%ld',specialDays:[1,2,3,4,5],opposite:true,disabledDays:[0,6]})"
+                                    readonly="readonly" />
+                                <%else if({model.seo_description}=="06") %>
+                                <input type="text" class="Wdate" data-params='{model.id}' onfocus="WdatePicker({onpicking:cartTotalAmount(this, {model.id}),minDate:'%y-%M-{ %d+1 }',maxDate:'%y-%M-%ld',specialDays:[0,6],opposite:true,disabledDays:[1,2,3,4,5]})"
+                                    readonly="readonly" />
+                                <%else if({model.seo_description}=="2014-12-31") %>
+                                <input type="text" class="Wdate" data-params='{model.id}' onfocus="WdatePicker({ onpicking:cartTotalAmount(this, {model.id}),minDate:'%y-%M-d',maxDate:'%y-%M-%ld',disabledDates:[31],opposite:true })"
+                                    readonly="readonly" />
+                                <%else %>
+                                <input type="text" class="Wdate" data-params='{model.id}' onfocus="WdatePicker({ onpicking:cartTotalAmount(this, {model.id}),dateFmt:'yyyy-MM-dd',minDate:'%y-%M-{ %d+1 }',maxDate:'%y-%M-%ld'})"
+                                    readonly="readonly" />
+                                <%/if%>
+                            </td>
+                            <td align="center">
+                                <a href="javascript:;" class="reduce" title="减一" onclick="CartAddMinus(this, '/', '{model.id}', -1);">
+                                    </a>
+                                <input type="text" name="goods_quantity" id="goods_quantity_{model.id}" onblur="cartTotalAmount(this,  {model.id});"
+                                    class="copies_num" value="1" onblur="TotalCartAmount(this, '/', '{model.id}');"
+                                    onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))">
+                                <a href="javascript:;" class="subjoin" title="加一" onclick="CartAddMinus(this,'/', '{model.id}', 1);">
+                                    </a>
+                            </td>
+                            <td class="ticket_item_buy">
+                                <span class="base_price" id="pricecount_{model.id}" class="pricecount"><dfn>¥</dfn><strong
+                                    class="unitprice">--</strong></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="line10">
+                </div>
+                <div class="orderinfo">
+                    <h2>
+                        <strong>取票人信息</strong> <span class="txt_gray">用于接收门票信息和入园</span></h2>
+                    <div class="form_box clearfix">
+                        <div class="f_l">
+                            <dl>
+                                <dt>取票人姓名：</dt>
+                                <dd>
+                                    <input name="accept_name" id="accept_name" type="text" class="input txt wide" value=""
+                                        datatype="s2-20" sucmsg=" "><span class="Validform_checktip">*取票人姓名</span></dd>
+                            </dl>
+                            <dl>
+                                <dt>手机号码：</dt>
+                                <dd>
+                                    <input name="mobile" id="mobile" type="text" class="input txt" value="" datatype="m"
+                                        sucmsg=" "><span class="Validform_checktip">*手机号码用于接收手机短信</span></dd>
+                            </dl>
+                            <dl>
+                                <dt>订单留言：</dt>
+                                <dd>
+                                    <textarea name="message" id="message_content" datatype="s0-250" class="input" style="width: 250px;
+                                        height: 35px;"></textarea>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="f_l" style="margin-left: 150px; margin-top: 50px">
+                            <p class="total">
+                                <b class="font18">应付总金额： </b><span class="base_price"><dfn>¥</dfn><strong id="total_amount">0</strong></span></p>
+                            <a class="btn" href="javascript:go(-1)">返回上一页</a>
+                            <input id="btnSubmit" name="btnSubmit" type="button" value="确认提交" style="width:100px" class="btn btn-success marL10" />
+                        </div>
+                    </div>
+                    <input type="hidden" id="jsonbox" />
+                    <div class="line20">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+          <!--footer-->
+    <%template src=/_footer_changlong.html/%>
+    <!--/footer-->
+    </div>
+</body>
+</html>

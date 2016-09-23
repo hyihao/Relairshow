@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%set (string){category_title}=get_category_title({model.category_id},"新闻资讯")%>
+    <title>{model.title} - {category_title} - {config.webname}</title>
+    <meta content="{model.seo_keywords}" name="keywords">
+    <meta content="{model.seo_description}" name="description">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/common.css" rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/list.css" rel="stylesheet">
+    <script type="text/javascript" src="<%templateskin%>/javascript/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="{config.webpath}scripts/lhgdialog/lhgdialog.js?skin=idialog"></script>
+    <script type="text/javascript" src="<%templateskin%>/javascript/base.js"></script>
+    <script type="text/javascript" src="<%templateskin%>/javascript/digg_ajax.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            bindDigg('{config.webpath}', '{model.id}');
+        });
+    </script>
+</head>
+<body>
+    <!--Header-->
+    <%template src=/_header.html/%>
+    <!--/Header-->
+    <div class="hangzhanNewsListMain cls_980">
+        <h2 class="hz_itemlist_nva">
+            2014珠海航展: <a href="http://www.qibila.com">奇比拉</a> &gt; <a href="<%linkurl("index")%>">
+                珠海航展</a> &gt; <a href="<%linkurl("news_list",{model.category_id})%>">{category_title}</a>
+        </h2>
+        <div class="hzNewsList clearfix">
+            <div class="f_l left677">
+                <div class="main_box">
+                    <div class="meta">
+                        <h1 class="meta-tit">
+                            {model.title}</h1>
+                        <div class="share">
+                        </div>
+                        <p class="meta-info">
+                            <span class="time">{model.add_time}</span> <span class="comm">
+                                <%write get_comment_count({model.id}, "is_lock=0")%>人评论</span> <span class="view">{model.click}次浏览</span>
+                            分类：{category_title}
+                        </p>
+                    </div>
+                    <div class="entry">
+                        {model.content}
+                    </div>
+                    <div class="line10">
+                    </div>
+                    <!--分享-->
+                    <%template src=/_share_js.html/%>
+                    <!--/分享-->
+                    <div class="line10">
+                    </div>
+                    <div class="turn">
+                        <div class="L_zi">
+                            上一篇：
+                            <%=get_prevandnext_article("news_show",-1,"没有了",0)%>
+                        </div>
+                        <div class="r_zi">
+                            下一篇：
+                            <%=get_prevandnext_article("news_show",1,"没有了",0)%>
+                        </div>
+                    </div>
+                    <div class="blank1">
+                    </div>
+                    <!--顶踩-->
+                    <%template src=/_digg_box.html/%>
+                    <!--/项踩-->
+                    <!--同类推荐-->
+                    <div class="related">
+                        <h3 class="base_tit">
+                            相关资讯</h3>
+                        <ul class="txt_list">
+                            <%set (DataTable){rednews1}=get_article_list("news", model.category_id, 8, "is_red=1 and id<>"+model.id)%>
+                            <%loop reddr1 rednews1%>
+                            <li><a title="{reddr1[title]}" href="<%linkurl("news_show",{reddr1[id]})%>">{reddr1[title]}</a><span>({reddr1[add_time]})</span></li>
+                            <%/loop%>
+                            <%if rednews1.Rows.Count<1%>
+                            <div>
+                                同类下暂无推荐的资讯...</div>
+                            <%/if%>
+                        </ul>
+                    </div>
+                    <!--/同类推荐-->
+                    <!--评论-->
+                    <%if model.is_msg==1%>
+                    <%template src=/_comment_box.html/%>
+                    <%/if%>
+                    <!--/评论-->
+                </div>
+            </div>
+            <!--_detail_right-->
+            <div class="f_r left300">
+                <div class="ngTitle">
+                    <h2>
+                        航展热点资讯</h2>
+                </div>
+                <div class="cyNewsCon">
+                    <%set DataTable hotphoto=get_article_list("news", 0, 10, "", "click desc,id desc")%>
+                    <%loop hotdr hotphoto%>
+                    <a href="<%linkurl("news_show",{hotdr[id]})%>" target="_blank">{hotdr[title]}</a>
+                    <%/loop%></div>
+            </div>
+            <!--/_detail_right-->
+        </div>
+    </div>
+    <!--Header-->
+    <%template src=/_footer.html/%>
+    <!--/Header-->
+</body>
+</html>

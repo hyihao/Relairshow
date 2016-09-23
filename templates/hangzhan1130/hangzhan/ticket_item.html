@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%set (string){category_title}=get_category_title({model.category_id},"航展门票")%>
+    <title>{model.title} - {category_title} - {config.webname}</title>
+    <meta content="{model.seo_keywords}" name="keywords">
+    <meta content="{model.seo_description}" name="description">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/showticket.css"
+        rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/common.css"
+        rel="stylesheet">
+    <script type="text/javascript" src="{config.webpath}scripts/jquery/jquery-1.10.2.min.js"></script>
+   
+    <script type="text/javascript" src="<%templateskin%>/javascript/base.js"></script>
+    <script type="text/javascript" src="<%templateskin%>/javascript/picture.js"></script>
+    <script type="text/javascript" src="<%templateskin%>/javascript/cart.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $(window).bind("scroll.gotop", function () {
+                if ($(window).scrollTop() > 700) {
+                    $(".r_tabs").addClass("r_tabs_fixed");
+                    $(".btn_buy").show();
+                }
+                else {
+                    $(".r_tabs").removeClass("r_tabs_fixed");
+                    $(".btn_buy").hide();
+                }
+            });
+
+            $(".r_tabs ul li").each(function (a, b) {
+                $(b).click(function () {
+                    $(b).addClass("current").siblings().removeClass("current");
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+    <!--Header-->
+    <%template src=/_header.html/%>
+    <!--/Header-->
+    <div id="bd" class="cf">
+        <h2 class="hz_itemlist_nva">
+            珠海航展: <a href="<%linkurl("index")%>">珠海航展</a>
+            &gt;<a href="<%linkurl("ticket")%>">珠海航展门票预订</a> 
+        </h2>
+        <div class="ticket_deal">
+            <div class="ticket_deal_headline">
+                <h3>
+                    {model.title}</h3>
+                <div class="ticket_deal_description">
+                    {model.seo_description}
+                </div>
+            </div>
+            <div class="t_detail_main clearfix">
+                <!--商品图片-->
+                <div class="ticketleft">
+                    <!--幻灯片开始-->
+                    <div class="pictureDIV">
+                        <div id="preview" class="spec-preview">
+                            <span class="jqzoom">
+                                <img width="460px" height="250px" /></span>
+                        </div>
+                        <!--缩图开始-->
+                        <div class="spec-scroll">
+                            <div class="items">
+                                <ul>
+                                  <%if(model.albums!=null)%>
+                <%foreach(DTcms.Model.article_albums modelt in model.albums)%>
+                <li><img bimg="{modelt.original_path}" src="{modelt.thumb_path}" onmousemove="preview(this);" /></li>
+                <%/foreach%>
+                <%/if%>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                        <!--缩图结束-->
+                    </div>
+                    <!--幻灯片结束-->
+                </div>
+                <!--/商品图片-->
+                <div class="deal-component-info">
+                    <div class="deal-component-price clearfix">
+                        <h3 class="deal-component-price-current">
+                            ¥ <strong>{model.fields[market_price]}</strong></h3>
+                        <div class="deal-component-price-sold">
+                            已售<span class="orange"><strong>{model.click}</strong></span></div>
+                    </div>
+                    <ul class="deal-component-expiry">
+                        <li><span class="deal-component-expiry-leading f_l">有效期</span> <span class="deal-component-inline-text-container f_l">
+                            <span class="deal-component-inline-text-wrapper"><span class="expiry_span">2014-11-14
+                                至2014-11-16 </span><span class="expiry_span_notice orange">公众日3天任意一天</span></span></span></li>
+                        <li><span class="deal-component-expiry-leading f_l">使用时间</span> <span class="deal-component-inline-text-container f_l">
+                            <span class="deal-component-inline-text-wrapper"><span class="orange">9:00-17:00</span>
+                            </span></span></li>
+                    </ul>
+                    <div class="divider">
+                    </div>
+                    <div class="ticket_quantity">
+                        <span class="deal-component-expiry-leading f_l">数量</span>
+                        <button for="cart_minus" data-action="-" gaevent="top/minus" type="button" class="f_l" id="cut_count">
+                            −</button>
+                        <input type="text" class="cart_quantity f_l" value="1" maxlength="9" name="goods_quantity"
+                            id="goods_quantity"><input name="goods_id" id="goods_id" type="hidden" value="{model.id}" />
+                        <button for="cart_add" class="item" data-action="+" gaevent="top/plus" type="button" id="add_count"
+                            class="f_l">
+                            +</button><span class="deal-component-quantity-warning orange"></span> <span class="quantity_warning orange">
+                                每人最多只能购买 100单</span>
+                    </div>
+                    <div class="btn-box clearfix">
+                    <%set int stock_quantity={strtoint({model.fields[stock_quantity]})}%>
+                      <%if(stock_quantity>0)%>
+                        <a href="javascript:void(0);" class="add" onclick="CartAdd(this, '{config.webpath}', 0, '<%linkurl("shopping","cart")%>');">
+                            加入购物车</a> <a href="javascript:void(0);" class="buy" onclick="CartAdd(this, '{config.webpath}', 1, '<%linkurl("shopping","confirm")%>');">
+                                立即购买</a>
+                        <%else%>
+                        <a title="该商品供货紧张，无法加入购物车" class="add-over">加入购物车</a> <a title="该商品供货紧张，无法立即购买" class="buy-over">
+                            立即购买</a>
+                        <%/if%>
+
+                        <a target="_blank" class="f_l" alt="淘宝购买" href="http://item.taobao.com/item.htm?spm=a1z10.1.w4004-8861640800.8.TMILMo&id=41686013354#" title="淘宝购买" rel="nofollow">
+                                        
+                        <span class="btn_panic">淘宝购买<i></i></span>
+                                            
+                                                            </a>
+
+                    </div>
+                    <div class="extra clearfix f_l">
+                        <dl>
+                            <dt class="deal-component-expiry-leading">支付方式 </dt>
+                            <dd>
+                                <a href="javascript:void(0)" target="_blank" title="信用卡支付" data-spm="d9" class="f_l">
+                                    <i class="card-payment"></i>信用卡支付 </a><a href="javascript:void(0)" target="_blank"
+                                        title="支付宝支付" data-spm="" class="f_l"><i class="alipay"></i>支付宝支付 </a><a href="javascript:void(0)"
+                                            target="_blank" title="银行转账" data-spm="d19" class="f_l"><i class="zhuanzhang"></i>
+                                            银行转账 </a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <%template src=/_share2_js.html/%>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ticket_content f_l">
+            <div class="other-biz">
+                <h4>
+                    中国(珠海)航展其他门票
+                    <div class="biz_sub_title">
+                        <span class="biz_sub_title_right">已售</span> <span class="biz_sub_title_left">门票价</span>
+                    </div>
+                </h4>
+                <ul class="ul_item_list">
+                 <%set (DataTable){hztickets}=get_article_list("goods", 44, 12, "is_red=1 and id<>" + model.id)%>
+            <%loop ulticket hztickets%>
+                    <li><a href="<%linkurl("ticket_item",{ulticket[id]})%>"  target="_blank">
+                    <span class="biz-title">{ulticket[title]} <em style="padding-left:10px">{ulticket[zhaiyao]} </em>
+                     </span><span
+                            class="price">￥{ulticket[market_price]}</span><span class="sale">{ulticket[click]}</span> </a></li>
+                   
+                 <%/loop%>   
+                </ul>
+            </div>
+            <div class="detail">
+                <div class="r_tabs">
+                    <ul>
+                        <li class="current"><a href="#remind">特别提醒</a> </li>
+                        <li class=""><a href="#address">商家地址</a> </li>
+                        <li class=""><a href="#detail">本票详情</a> </li>
+                        <li><a href="#pinglun">本票点评 <span class="c_tx" id="span_commmentbox">(10)</span></a></li>
+                    </ul>
+                    <div class="btn_buy" id="btn_buy" style="display: none;">
+                        <span class="span_buy" id="Span2"> <%if(stock_quantity>0)%><a href="javascript:void(0);" onclick="CartAdd(this, '{config.webpath}', 1, '<%linkurl("shopping","confirm")%>');">购买￥{model.fields[market_price]}</a><%else %>缺货<%/if %> </span>
+                    </div>
+                </div>
+                <div class="hb">
+                    <a name="remind"></a>
+                    <div class="detail_bar">
+                        <div class="r_tebie">
+                            <h2 class="title">
+                                <span>特别提醒</span></h2>
+                            <div class="content_info">
+                                <p>
+                                    <span>1.请观众在购票前务必了解清楚各种门票的适用对象、适用条件和适用时间，以便买到自身适用的门票。如购票后发现不适用理由，则无法以补门票差价、退票或换票方式处理，一切后果自负。</span><br>
+                                    <span>2.所有人员（含老人、军人、婴儿）需购买门票进场参观。不设免票婴幼儿童，建议观众不要携带三岁以下儿童入场。</span><br>
+                                    <span>3.持票观众限在公众日展览开放时间内前往参观，门票过期作废；门票在公众日三天内任选一天使用，入场当日单次有效，通过门禁闸机打孔后失效。</span><br>
+                                    <span>4.学生票和优惠票从专用验票通道入场，同时需查验相关有效证件和门票后入场参观。持学生票入场时需出示珠海身份证或户口本，持优惠票入场时需要出示相关有效学生、老人或残疾的证件或证明，有效学生证明是指有学生照片和学生身份证明资料的证件或文件（如可以由学校盖章认可学生身份的证明（需有照片）,老人有效证件指带照片的老人证或身份证。残疾人有效证件指政府相关公共机构审核印发的带照片的残疾证明或证书。有效证件也可是社会公共机构通过审核学生或老人身份后办理的证件（如珠海学生和老人公车乘车卡）。</span><br>
+                                    <span>5.门票一经售出，不得退票、换票，遗失不补。</span><br>
+                                    <span>6.所有门票不宜折叠，请公众购买门票后注意妥善保管，一经损坏，无法换票或补票，后果自负。</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a name="address"></a>
+                    <div class="detail_bar">
+                        <div class="r_tebie">
+                            <h2 class="title">
+                                <span>商家地址</span></h2>
+                            <div class="content_info">
+                                <p>
+                                    <span>第十届中国航展的展览时间和地点</span><br>
+                                    <span>一、展览期：2014年11月11日至11月16日。</span><br>
+                                    <span>1、2014年11月11日至11月13日为专业日，面向航空航天专业人士开放。</span>
+                                    <br>
+                                    <span>2、2014年11月14日至11月16日为公众日，面向社会普通观众开放。</span><br>
+                                    <span>3、普通观众咨询热线：0756-6855591、15989768355</span><br>
+                                    <span>二、展览入场时间：每天 9：00—17：00</span><br>
+                                    <span>三、展览地点：中国珠海航展中心——珠海市机场路航展馆(位于珠海三灶机场一侧)</span><br>
+                                    <span><a href="http://hangzhan.qibila.com/news/show-117.aspx" target="_blank" style="font-size: 14px;line-height: 26px; color:blue">珠海航展交通指南</a></span><br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a name="detail"></a>
+                    <div class="detail_bar">
+                        <div class="r_tebie">
+                            <h2 class="title">
+                                <span>本票详情</span></h2>
+                            <div class="content_info">
+                                <table border="1" cellspacing="0" cellpadding="0" align="center" style="font-size: 14px;"
+                                    class="tickedinfo">
+                                    <tbody>
+                                        <tr>
+                                            <td width="91">
+                                                <p style="text-align: center;">
+                                                    <strong style="font-size: 15px;">门票种类</strong>
+                                                </p>
+                                            </td>
+                                            <td width="96">
+                                                <p style="text-align: center;">
+                                                    <strong style="font-size: 15px;">票价</strong>
+                                                </p>
+                                            </td>
+                                            <td width="408">
+                                                <p style="text-align: left;">
+                                                    <strong style="font-size: 15px;">适用规则</strong>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="91">
+                                                <p style="text-align: center;">
+                                                    <strong>个人票</strong>
+                                                </p>
+                                            </td>
+                                            <td width="96">
+                                                <p style="text-align: center;">
+                                                    <strong>400</strong><strong>元/张</strong>
+                                                </p>
+                                            </td>
+                                            <td width="408">
+                                                <div align="left">
+                                                    <ol>
+                                                        <li>
+                                                            <p>
+                                                                适用所有人员，一人一票，不能携带无票婴幼儿童入场。
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                                                公众日三天内任选一天使用，入场当日单次有效。
+                                                            </p>
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="91">
+                                                <p style="text-align: center;">
+                                                    <strong>特惠票</strong>
+                                                </p>
+                                            </td>
+                                            <td width="96">
+                                                <p style="text-align: center;">
+                                                    <strong>150元/张</strong>
+                                                </p>
+                                            </td>
+                                            <td width="408">
+                                                <div align="left">
+                                                    <ol>
+                                                        <li>
+                                                            <p>
+                                                                适用于18周岁及以下（即1997年1月1日及以后出生）珠海户口的中小学生和幼童。
+                                                </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                                                入场时需出示相关有效证件（珠海户口本或身份证）。
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                                                公众日三天内任选一天使用，入场当日单次有效。
+                                                            </p>
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="91">
+                                                <p style="text-align: center;">
+                                                    <strong>优惠票</strong>
+                                                </p>
+                                            </td>
+                                            <td width="96">
+                                                <p style="text-align: center;">
+                                                    <strong>200</strong><strong>元/张</strong>
+                                                </p>
+                                            </td>
+                                            <td width="408">
+                                                <div align="left">
+                                                    <ol>
+                                                        <li>
+                                                            <p>
+                                                                适用于25周岁以下全日制学校的大中小学生（不含研究生和在职教育学生）、身高1.5米以下的儿童、残疾人士和60周岁及以上（即1955年12月31日以前出生）老年人。
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                                                入场时需出示相关有效证件（学生证、残疾证明或者身份证），从专用通道入场。
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                                                公众日三天内任选一天使用，入场当日单次有效。
+                                                            </p>
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="91">
+                                                <p style="text-align: center;">
+                                                    <strong>家庭票</strong>
+                                                </p>
+                                            </td>
+                                            <td width="96">
+                                                <p style="text-align: center;">
+                                                    <strong>950</strong><strong>元/张</strong>
+                                                </p>
+                                            </td>
+                                            <td width="408">
+                                                <div align="left">
+                                                    <ol>
+                                                        <li>
+                                                            <p>
+                                                               适用于2个成人带1个身高1.5米（含1.5米）以下儿童）。（验票通道前设立身高标尺）。
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                                                公众日三天内任选一天使用，家庭票为一张票，2大1小同时入场，入场当日单次有效。
+                                                            </p>
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="91">
+                                                <p style="text-align: center;">
+                                                    <strong>团体票</strong>
+                                                </p>
+                                            </td>
+                                            <td width="96">
+                                                <p style="text-align: center;">
+                                                    <strong>5500</strong><strong>元/张</strong>
+                                                </p>
+                                            </td>
+                                            <td width="408">
+                                                <div align="left">
+                                                    <ol>
+                                                        <li>
+                                                            <p>
+                                                                适用于15人的团体人员使用。
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                                                公众日三天内任选一天使用，团队票为一张票，15人需同时入场，入场当日单次有效。
+                                                            </p>
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="91">
+                                                <p style="text-align: center;">
+                                                    <strong>团购票</strong>
+                                                </p>
+                                            </td>
+                                            <td width="96">
+                                                <p style="text-align: center;">
+                                                    <strong>370</strong><strong>元/张</strong>
+                                                </p>
+                                            </td>
+                                            <td width="408">
+                                                <div align="left">
+                                                    <ol>
+                                                        <li>
+                                                            <p>
+                                                                适用于所有人员，在本网站订购团购票，获取验证信息，现场拼团入内。
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                                                公众日三天内任选一天使用，拼团入内，入场当日单次有效。
+                                                            </p>
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail_bar">
+                        <div class="r_tebie">
+                            <h2 class="title">
+                            <a name="pinglun"></a>
+                                <span>本票点评</span></h2>
+                            <div class="content_info">
+                                <!--评论-->
+                               <%if(model.is_msg==1)%>
+                                  <%template src="_comment_box.html"%>
+                               <%/if%>
+                    
+                                <!--/评论-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ticket_sidebar">
+        </div>
+    </div>
+    <!--Footer-->
+    <%template src=/_footer.html/%>
+    <!--/Footer-->
+</body>
+</html>

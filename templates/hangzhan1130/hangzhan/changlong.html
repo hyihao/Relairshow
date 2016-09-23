@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>珠海长隆海洋王国长隆马戏，海洋王国票价，海洋王国门票多少钱</title>
+    <meta content="珠海长隆，海洋王国门票，马戏二等门票" name="keywords">
+    <meta content="珠海长隆：写一部关于海的童话，你是主角；游弋在海洋王国，感受波澜壮阔的深海宫殿，做一名探险家"
+        name="description">
+    <meta content="{config.webtitle}" name="author">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/common.css" rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/index.css" rel="stylesheet">
+    <script type="text/javascript" src="<%templateskin%>/javascript/jquery-1.8.0.min.js"></script>
+    <script src="<%templateskin%>/javascript/slides.jquery.js" type="text/javascript"></script>
+    <link media="screen" type="text/css" href="<%templateskin%>/css/changlong/main.css"
+        rel="stylesheet">
+    <link media="screen" type="text/css" href="<%templateskin%>/css/changlong/silde.css"
+        rel="stylesheet">
+    <script type="text/javascript">
+        $(function () {
+            $('#slides').slides({
+                preload: true,
+                preloadImage: 'img/loading.gif',
+                play: 5000,
+                pause: 2500,
+                hoverPause: true
+            });
+            var x_pos = 0;
+            var li_items_n = 0;
+            var right_clicks = 0;
+            var left_clicks = 0;
+            var li_col = jQuery("#slider_list > li");
+            var li_width = li_col.outerWidth(true);
+            var viewWindow = Math.round(jQuery('.block-slider').width() / li_width);
+            //alert(viewWindow);
+            li_col.each(function (index) {
+                x_pos += jQuery(this).outerWidth(true);
+                li_items_n++;
+            })
+            right_clicks = li_items_n - viewWindow;
+            total_clicks = li_items_n - viewWindow;
+
+            //alert(right_clicks);
+
+            $('#slider_list').css('position', 'relative');
+            $('#slider_list').css('left', '0px');
+            $('#slider_list').css('width', x_pos + 'px');
+
+            var slider_link = $('#right_but');
+            var slider_link_index = 1;
+            var slider_count = $('#slider_list > li').size();
+
+            function slider_intro() {
+                if (slider_link_index <= slider_count) {
+                    slider_link.trigger('click');
+                    slider_link_index++;
+                    setTimeout(function () { slider_intro() }, 5000); //select change time
+                }
+            }
+            setTimeout(function () { slider_intro() }, 5000);
+
+            $('#slider_list>li').each(function (a, b) {
+                $(b).hover(function () {
+                    $(b).find('span').stop().animate({ 'bottom': 5 }, 500)
+                }, function () {
+                    $(b).find('span').stop().animate({ 'bottom': -($(b).height() + 5) }, 300);
+                });
+            });
+        });
+    </script>
+</head>
+<body class="narrow_page">
+    <div class="head_nav">
+        <div class="mini_nav_wrap clsPanle">
+            <div class="mini_logo">
+                <a href="../index.aspx"></a>
+            </div>
+            <ul>
+                <li><a href="<%linkurl("changlong")%>">海洋王国</a></li>
+                <li><a href="<%linkurl("index")%>">珠海航展</a></li>
+                <li><a href="#">主题乐园</a></li>
+                <li><a href="#">餐饮指南</a></li>
+                <li><a href="#">表演时间</a></li>
+                <li><a href="#">交通指南</a></li>
+                <li><a href="#" title="长隆马戏">国际马戏城</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--<div class="banner_box">
+            <div id="slides">
+                <div class="slides_container">
+                  <div class="slide">
+                        <a href='<%linkurl("wanshengjie")%>' title="珠海长隆海洋王国" target="_blank">
+                            <img src="../../images/changlong/oc_big_img0.jpg" alt="珠海长隆海洋王国"/>
+                            </a>
+                    </div>
+                    <div class="slide">
+                        <a href="#" title="珠海航展" target="_blank">
+                            <img src="../../images/changlong/oc_big_img1.jpg" />  </a>
+                    </div>
+               
+                </div>
+            </div>
+        </div>-->
+    <div class="clsPanle mainbody">
+        <div class="m_conter">
+            <div class="mod_hd">
+                <h2>
+                    海洋王国八大主题</h2>
+                <span class="title_tips">写一部关于海的童话，你是主角；游弋在海洋王国，感受波澜壮阔的深海宫殿，做一名探险家</span> <i class="title_img">
+                </i>
+            </div>
+            <ul class="mainfun">
+                <li><a target="_blank" href="http://piao.ctrip.com/dest/t135794.html#ctm_ref=va_tkt1_s1012_prd1_p0_l1_1_img"
+                    title="魔幻海狮村海象山">
+                    <p class="fun_desp">
+                        最魔幻•海象山</p>
+                    <img alt="" class="list_pic img-loaded" src="http://dimg02.c-ctrip.com/images/tg/449/557/553/cf4270e6d3e34b9ea02d07e41a5f6124_C_280_158.jpg">
+                    <h3 class="list_title" title="魔幻海狮村海象山">
+                        激情漂流,超级漂流</h3>
+                    <p class="list_time" title="★在这个区域居住着憨厚老实又逗趣搞笑的海洋动物朋友——海狮">
+                        ★在这个区域居住着憨厚老实又逗趣搞笑的海洋动物朋友——海狮</p>
+                </a></li>
+                <li><a target="_blank" href="http://piao.ctrip.com/dest/t135794.html#ctm_ref=va_tkt1_s1012_prd1_p0_l1_1_img"
+                    title="世界最大的海洋鱼类展馆">
+                    <p class="fun_desp">
+                        最震撼•海洋奇观</p>
+                    <img alt="" class="list_pic img-loaded" src="http://dimg02.c-ctrip.com/images/tg/449/557/553/cf4270e6d3e34b9ea02d07e41a5f6124_C_280_158.jpg">
+                    <h3 class="list_title" title="最震撼•海洋奇观">
+                        世界最大的海洋鱼类展馆
+                    </h3>
+                    <p class="list_time" title="★海洋王国最顶级、最精彩、也是最精华的区域">
+                        ★海洋王国最顶级、最精彩、最精华的区域</p>
+                </a></li>
+                <li><a target="_blank" href="http://piao.ctrip.com/dest/t135794.html#ctm_ref=va_tkt1_s1012_prd1_p0_l1_1_img"
+                    title="世界最大的海洋鱼类展馆">
+                    <p class="fun_desp">
+                        最过瘾•极地探险</p>
+                    <img alt="" class="list_pic img-loaded" src="http://dimg02.c-ctrip.com/images/tg/708/191/412/2b31c2dd5aee41578848528675b37b63_C_280_158.jpg">
+                    <h3 class="list_title" title="最震撼•海洋奇观">
+                        一个充满冒险、乐趣、野性生物的故事
+                    </h3>
+                    <p class="list_time" title="★海洋王国最顶级、最精彩、也是最精华的区域">
+                        ★乘坐极地破冰船，深入北极冰川</p>
+                </a></li>
+                <li><a target="_blank" href="http://piao.ctrip.com/dest/t135794.html#ctm_ref=va_tkt1_s1012_prd1_p0_l1_1_img"
+                    title="世界最大的海洋鱼类展馆">
+                    <p class="fun_desp">
+                        最浪漫•海豚湾</p>
+                    <img alt="" class="list_pic img-loaded" src="http://dimg02.c-ctrip.com/images/tg/708/191/412/2b31c2dd5aee41578848528675b37b63_C_280_158.jpg">
+                    <h3 class="list_title" title="最震撼•海洋奇观">
+                        旋转水战，海豚转转车
+                    </h3>
+                    <p class="list_time" title="★海洋王国最顶级、最精彩、也是最精华的区域">
+                        ★加勒比海珊瑚礁海豚剧场的海豚表演</p>
+                </a></li>
+                <li><a target="_blank" href="http://piao.ctrip.com/dest/t135794.html#ctm_ref=va_tkt1_s1012_prd1_p0_l1_1_img"
+                    title="世界最大的海洋鱼类展馆">
+                    <p class="fun_desp">
+                        最欢乐•缤纷世界</p>
+                    <img alt="" class="list_pic img-loaded" src="http://dimg02.c-ctrip.com/images/tg/708/191/412/2b31c2dd5aee41578848528675b37b63_C_280_158.jpg">
+                    <h3 class="list_title" title="最震撼•海洋奇观">
+                        欢乐碰碰车，游戏廊，梦幻海洋
+                    </h3>
+                    <p class="list_time" title="★海洋王国最顶级、最精彩、也是最精华的区域">
+                        ★驰骋在海岛缤纷世界，尽享速度与激情的无穷乐趣！</p>
+                </a></li>
+                <li><a target="_blank" href="http://piao.ctrip.com/dest/t135794.html#ctm_ref=va_tkt1_s1012_prd1_p0_l1_1_img"
+                    title="世界最大的海洋鱼类展馆">
+                    <p class="fun_desp">
+                        最挑战•雨林飞翔</p>
+                    <img alt="" class="list_pic img-loaded" src="http://zh.chimelong.com/Oceankingdom/images/zqny_htwx.jpg">
+                    <h3 class="list_title" title="最震撼•海洋奇观">
+                        鹦鹉过山车，全球轨道最长的过山车
+                    </h3>
+                    <p class="list_time" title="★海洋王国最顶级、最精彩、也是最精华的区域">
+                        ★以特别刺激的方式飞越雨林，挑战脚尖在树梢飞舞、体验的乐趣是前所未有的</p>
+                </a></li>
+                <li><a target="_blank" href="http://piao.ctrip.com/dest/t135794.html#ctm_ref=va_tkt1_s1012_prd1_p0_l1_1_img"
+                    title="世界最大的海洋鱼类展馆">
+                    <p class="fun_desp">
+                        最悠闲·横琴海</p>
+                    <img alt="" class="list_pic img-loaded" src="http://zh.chimelong.com/Oceankingdom/images/ylss/hqh/hcxy.jpg">
+                    <h3 class="list_title" title="最震撼•海洋奇观">
+                        海洋王国大巡游，烟花幻彩横琴海，跳跃旋律音乐喷泉
+                    </h3>
+                    <p class="list_time" title="★海洋王国最顶级、最精彩、也是最精华的区域">
+                        ★欢乐，明快，五彩缤纷，蕴含着我们在横琴海洋王国每一天的欢乐，奇迹，和喜庆。</p>
+                </a></li>
+                <li><a target="_blank" href="http://piao.ctrip.com/dest/t135794.html#ctm_ref=va_tkt1_s1012_prd1_p0_l1_1_img"
+                    title="世界最大的海洋鱼类展馆">
+                    <p class="fun_desp">
+                        最满足•海洋大街</p>
+                    <img alt="" class="list_pic img-loaded" src="http://zh.chimelong.com/Oceankingdom/images/ylss/hqh/hcxy.jpg">
+                    <h3 class="list_title" title="最震撼•海洋奇观">
+                        珍惜保护在她身边的所有自然美丽事物海洋王国大巡游
+                    </h3>
+                    <p class="list_time" title="★海洋王国最顶级、最精彩、也是最精华的区域">
+                        ★迎宾、观光、购物休闲为主</p>
+                </a></li>
+            </ul>
+            <div class="upcoming">
+                <div class="upcoming_hear">
+                    <h2>
+                        玩尽全球顶尖娱乐  动物展区
+                    </h2>
+                </div>
+                <div class="upcomingRegion i_swwantlist ">
+                    <a href="#" id="upcomingPre" title="last" class="lastcol" style=""></a><a href="#"
+                        id="upcomingNext" title="next" class="nextcol"></a>
+                    <div class="i_swwantlister ">
+                        <div class="movie_scroll">
+                            <div class="upcoming_item">
+                               <!-- <ul>
+                                    <li><i class="dot">&nbsp;</i></li>
+                                    <li class="day"><strong>11月28日</strong>即将上映</li>
+                                    <li class="i_wantmovie"><a href="http://movie.mtime.com/154180/" target="_blank"
+                                        title="火线反攻/Fire with Fire(2012)" class="img __r_c_" pan="M14_TheaterIndex_Upcoming_Cover">
+                                        <img src="" width="100"
+                                            height="150" alt="火线反攻/Fire with Fire(2012)"></a>
+                                        <div class="__r_c_" pan="M14_TheaterIndex_Upcoming_Title">
+                                            <h3>
+                                                <a href="http://movie.mtime.com/154180/" target="_blank">火线反攻</a></h3>
+                                            <p>
+                                                <span mid="154180" method="want" genre="1">56人想看 - </span><a href="http://movie.mtime.com/movie/search/section/?type=Action"
+                                                    target="_blank">动作</a> / <a href="http://movie.mtime.com/movie/search/section/?type=Crime"
+                                                        target="_blank">犯罪</a></p>
+                                            <p class="i_wbr">
+                                                <b>导演：</b><a href="http://people.mtime.com/903344/" target="_blank">大卫·布莱特</a>
+                                            </p>
+                                        </div>
+                                        <p>
+                                            <a href="http://movie.mtime.com/154180/trailer/51549.html" class="__r_c_" pan="M14_TheaterIndex_Upcoming_TrailerButton"
+                                                target="_blank">预告片<i class="icon_ivideo"></i></a></p>
+                                        <p class="ticket __r_c_" pan="M14_TheaterIndex_Upcoming_TicketButton" mid="154180"
+                                            method="presell">
+                                            <a href="http://theater.mtime.com/China_Beijing/movie/154180/20141128/" target="_blank">
+                                                超前预售</a></p>
+                                    </li>
+                                </ul>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
